@@ -6,8 +6,11 @@ client/node_modules
 
 # local env files
 env/
-.env.local
-.env.*.local
+server/env
+server/.env.local
+server/.env.*.local
+server/resources/__pycache__/
+server/database/__pycache__/
 
 # Log files
 npm-debug.log*
