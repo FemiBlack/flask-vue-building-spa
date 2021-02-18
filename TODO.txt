@@ -1,0 +1,39 @@
+first remove all instaces of http://localhost:5000
+e.g{
+    getBooks(){
+        const path = '/books'
+        ....
+    }
+}
+next the build the image and run the container in detached mode
+
+$ docker build -t web:latest
+$ docker run -d --name flask-vue -e "PORT=8765" -p 8007:8765 web:latest
+$ docker exec flask-vue cat ../etc/nginx/conf.d/default.conf
+
+ensure nginx is listening at port 8765: listen 8765;
+ensure app is running at localhost:8007
+stop then remove container once done
+$ docker stop flask-vue
+$ docker rm flask-vue
+
+
+HEROKU
+$ heroku create
+
+login to the heroku container registry
+$heroku container:login
+
+rebuild the image and tag it with the following format
+registry.heroku.com/<app>/<process-type>
+
+i.e 
+$ docker build -t registry.heroku.com/my-app-name/web .
+
+push image to registry
+$ docker push registry.heroku.com/my-app-name/web
+
+release the image
+$ heroku container:release --app my-app-name web
+
+view app at <app-name>.herokuapp.com
