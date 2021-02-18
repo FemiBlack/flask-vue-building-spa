@@ -1,8 +1,22 @@
-# client
+# housing_app
 
-## Project setup
+## Project setup(Front End | VueJS)
+
 ```
+cd ./client
 npm install
+```
+
+## Project setup(Back End | Flask)
+
+```
+cd ./server
+pip install -r requirements.txt
+```
+Run app in development mode
+```
+source ./env/bin/activate
+py -m app.py
 ```
 
 ### Compiles and hot-reloads for development
