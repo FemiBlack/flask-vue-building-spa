@@ -11,7 +11,9 @@
     "axios": "^0.21.1",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "jw-vue-pagination": "^1.0.3",
     "vue": "^2.6.11",
+    "vue-form-wizard": "^0.8.4",
     "vue-router": "^3.2.0",
     "vue-step-wizard": "^0.1.16",
     "vuelidate": "^0.7.6",
@@ -39,8 +41,7 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
+      "eslint:recommended"
     ],
     "parserOptions": {
       "parser": "babel-eslint"

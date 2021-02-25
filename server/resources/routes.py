@@ -1,4 +1,4 @@
-from .movie import MoviesApi, MovieApi
+from .building import HousingApi, HouseApi
 from .auth import SignupApi, LoginApi
 
 def initialize_routes(api):

@@ -13,8 +13,9 @@
 
 <script>
 import axios from 'axios'
-import Alert from './Alert'
-import Card from './Card'
+import Alert from '../components/Alert'
+import Card from '../components/Card'
+import {required, minLength, sameAs} from "vuelidate/lib/validators"
 import JWPagination from 'jw-vue-pagination'
 
 const customStyles ={
@@ -48,14 +49,13 @@ export default {
             message: '',
             showMessage: false,
             customStyles,
-            unitHouse
+            unitHouse: ''
         }
     },
     components: {
 		alert: Alert,
 		card: Card,
-		Header,
-		Footer
+        JWPagination
     },
     validations:{
         loginForm:{
@@ -98,7 +98,7 @@ export default {
         }
     },
     created() {
-        this.getBooks()
+        this.getHouses()
     }
 }
 </script>

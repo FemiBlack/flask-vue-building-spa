@@ -2,13 +2,13 @@ from .db import db
 from flask_bcrypt import generate_password_hash,check_password_hash
 
 
-class RemCol(db.Document):
-    remark = db.StringField()
-    response = db.StringField()
+# class RemCol(db.Document):
+#     remark = db.StringField()
+#     response = db.StringField()
 
 class BuildingExtEnv(db.EmbeddedDocument):
-    drv_rain =  db.EmbeddedDocumentField(RemCol)
-    drainage_issue =  db.ReferenceField(RemCol)
+    drv_rain =  db.DictField()
+    drainage_issue =  db.DictField()
     water_log =  db.DictField() # read-docs
     unkempt =  db.DictField() # read-docs
     pollution =  db.DictField() # read-docs
@@ -125,35 +125,36 @@ class BuildingWeatherRain(db.EmbeddedDocument):
 
 class Building(db.Document):
     building_no = db.StringField(required=True, unique=True)
-    address = db.StringField(db.StringField(), required=True)
-    date = db.DateTimeField(db.StringField(), required=True)
-    building_age = db.IntField(db)
-    last_repair_date = db.DateTimeField(db)
-    nature_of_repair = db.StringField(db)
-    frequency_of_repair = db.IntField(db)
-    geometry = db.StringField(db)
+    address = db.StringField(required=True)
+    date = db.DateTimeField(required=True)
+    building_age = db.IntField()
+    last_repair_date = db.DateTimeField()
+    nature_of_repair = db.StringField()
+    frequency_of_repair = db.IntField()
+    geometry = db.StringField()
     characteristics = db.ListField(db.StringField())
-    compliance = db.BooleanField(db)
-    deviation = db.DateTimeField()
-    external_env = db.EmbeddedDocumentField()
-    internal_cond = db.EmbeddedDocumentField()
-    general_being = db.EmbeddedDocumentField()
-    component_quality = db.EmbeddedDocumentField()
-    design_lvl = db.EmbeddedDocumentField()
-    work_xp_lvl = db.EmbeddedDocumentField()
-    indoor_env = db.EmbeddedDocumentField()
-    outdoor_env = db.EmbeddedDocumentField()
-    in_use_cond = db.EmbeddedDocumentField()
-    maintenance = db.EmbeddedDocumentField()
-    nd_test_res = db.EmbeddedDocumentField()
-    weather_info_temp = db.EmbeddedDocumentField()
-    weather_info_rain = db.EmbeddedDocumentField()
+    compliance = db.BooleanField()
+    deviation = db.StringField()
+    external_env = db.EmbeddedDocumentField(BuildingExtEnv)
+    internal_cond = db.EmbeddedDocumentField(BuildingIntCond)
+    general_being = db.EmbeddedDocumentField(BuildingGenCond)
+    component_quality = db.EmbeddedDocumentField(BuildingQualityofComponent)
+    design_lvl = db.EmbeddedDocumentField(BuildingDesignLevel)
+    work_xp_lvl = db.EmbeddedDocumentField(BuildingWorkXPLevel)
+    indoor_env = db.EmbeddedDocumentField(BuildingIndoorEnv)
+    outdoor_env = db.EmbeddedDocumentField(BuildingOutdoorEnv)
+    in_use_cond = db.EmbeddedDocumentField(BuildingInUseCond)
+    maintenance = db.EmbeddedDocumentField(BuildingMaintenance)
+    nd_test_res = db.EmbeddedDocumentField(NDTestRes)
+    weather_info_temp = db.EmbeddedDocumentField(BuildingWeatherTemp)
+    weather_info_rain = db.EmbeddedDocumentField(BuildingWeatherRain)
     is_completed = db.BooleanField(default=False) # set to true on FIELD4 SUBMISSION
+    added_by = db.ReferenceField('User')
 
 class User(db.Document):
     email = db.EmailField(required=True, unique=True)
     password = db.StringField(required=True, min_length=6)
-    # movies = db.ListField(db.ReferenceField('Movie', reverse_delete_rule=db.PULL))
+    houses = db.ListField(db.ReferenceField('Building', reverse_delete_rule=db.PULL))
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
@@ -161,4 +162,4 @@ class User(db.Document):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-User.register_delete_rule(Movie, 'added_by', db.CASCADE)
+User.register_delete_rule(Building, 'added_by', db.CASCADE)

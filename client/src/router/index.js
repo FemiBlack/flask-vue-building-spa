@@ -19,19 +19,21 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register,
-    meta: {guest: true}
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-    meta: {guest: true}
+    component: Home,
+    children: [
+      {
+        path: '/register',
+        name: 'Register',
+        component: Register,
+        meta: {guest: true}
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: Login,
+        meta: {guest: true}
+      }
+    ]
   },
   {
     path: '/account',

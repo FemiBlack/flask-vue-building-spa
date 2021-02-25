@@ -9,17 +9,18 @@ from resources.errors import errors
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'somesecretkey'
-app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://localhost/housing'}
 app.config.from_envvar('ENV_FILE_LOCATION')
 # export(linux)|set(windows) ENV_FILE_LOCATION=./.env
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
+app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://localhost/housing_app'}
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 
 initialize_db(app)
 initialize_routes(api)
 
-app.run()
+if __name__ == '__main__':
+    app.run()

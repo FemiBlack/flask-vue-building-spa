@@ -1,6 +1,6 @@
 <template>
     <div class="card" style="width: 18rem;">
-        <img src="./Cover.jpg" alt="building silhouette" class="card-img-top">
+        <img src="../assets/Cover.jpg" alt="building silhouette" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{ name }}</h5>
             <p class="card-text">{{ address }}</p>

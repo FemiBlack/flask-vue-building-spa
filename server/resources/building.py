@@ -13,7 +13,7 @@ class HousingApi(Resource):
         houses = Building.objects().to_json()
         return Response(houses, mimetype="application/json", status=200)
 
-    @jwt_required
+    @jwt_required()
     def post(self):
         try:
             user_id = get_jwt_identity()
@@ -21,7 +21,7 @@ class HousingApi(Resource):
             user = User.objects.get(id=user_id)
             house = Building(**body, added_by=user)
             house.save()
-            user.update(push__movies=movie)
+            user.update(push__houses=house)
             user.save()
             id = house.id
             return {'id':str(id)}, 200
@@ -33,7 +33,7 @@ class HousingApi(Resource):
             raise InternalServerError
 
 class HouseApi(Resource):
-    @jwt_required
+    @jwt_required()
     def put(self, id):
         try:
             user_id = get_jwt_identity()
@@ -48,7 +48,7 @@ class HouseApi(Resource):
         except Exception:
             raise InternalServerError
 
-    @jwt_required
+    @jwt_required()
     def delete(self, id):
         try:
             user_id = get_jwt_identity()

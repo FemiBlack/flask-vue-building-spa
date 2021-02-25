@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Wizard from './Wizard'
+import Wizard from '../components/Wizard'
 
 export default {
   data(){

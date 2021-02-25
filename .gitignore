@@ -3,9 +3,12 @@ client/node_modules
 /clientEl
 /dist
 
-
+data.json
+server/database/data.json
 # local env files
 env/
+venv/
+server/venv
 server/env
 server/.env.local
 server/.env.*.local

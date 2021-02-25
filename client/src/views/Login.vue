@@ -56,7 +56,7 @@ export default{
             alert('success!:-)\n\n' + JSON.stringify(this.user))
         },
         ...mapActions(["LogIn"]),
-        submit() {
+        async submit() {
             const User = new FormData();
             User.append("username", this.user.username);
             User.append("password", this.user.password);

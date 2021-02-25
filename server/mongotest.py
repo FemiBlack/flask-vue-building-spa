@@ -11,7 +11,7 @@ app = Flask(__name__)
 # db = client.test
 
 # app.config["MONGODB_HOST"] = DB_URI
-app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://localhost/housing'}
+app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing'}
 
 db = MongoEngine(app)
 # db.init_app(app)
