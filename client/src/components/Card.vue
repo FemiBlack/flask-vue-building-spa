@@ -11,9 +11,9 @@
 
 <script>
 export default {
-    props: {
-        name: String,
-        address: String
-    }
-}
+  props: {
+    name: String,
+    address: String,
+  },
+};
 </script>

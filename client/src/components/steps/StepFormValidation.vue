@@ -87,36 +87,36 @@
 </template>
 
 <script>
-import { FormWizard, TabContent, ValidationHelper } from "vue-step-wizard";
-import "vue-step-wizard/dist/vue-step-wizard.css"
-import { required, email, numeric } from "vuelidate/lib/validators";// or import each {single}
+import { FormWizard, TabContent, ValidationHelper } from 'vue-step-wizard';
+import 'vue-step-wizard/dist/vue-step-wizard.css';
+import { required, email, numeric } from 'vuelidate/lib/validators';// or import each {single}
 
 export default {
-    name: 'StepFormValidation',
-    components: {
-        FormWizard,
-        TabContent
+  name: 'StepFormValidation',
+  components: {
+    FormWizard,
+    TabContent,
+  },
+  mixins: [ValidationHelper],
+  data() {
+    return {
+      formData: {
+        fullName: '',
+        email: null,
+      },
+      validationRules: [
+        { fullName: { required }, email: { required, email } },
+        { companyName: { required }, numberOfEmployees: { required, numeric } },
+        { referral: { required }, terms: { required, email } },
+      ],
+    };
+  },
+  methods: {
+    onComplete() {
+      alert('Submitting Form!');
     },
-    mixins: [ValidationHelper],
-    data(){
-        return{
-            formData: {
-                fullName: '',
-                email: null
-            },
-            validationRules: [
-                { fullName: { required }, email: { required, email } },
-                { companyName: { required }, numberOfEmployees: { required, numeric } },
-                { referral: { required }, terms: { required, email } }
-            ]
-        }
-    },
-    methods: {
-        onComplete(){
-            alert("Submitting Form!")
-        }
-    }
-}
+  },
+};
 </script>
 
 <style>

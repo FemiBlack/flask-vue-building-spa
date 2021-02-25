@@ -4,103 +4,106 @@
         <div class="row">
             <div v-if="!houses[0]">No houses in the database</div>
             <div class="col-sm-3" v-else>
-                <card v-for="house in houses" :key="house.id" :name="house.name" :address="house.address"></card>
-                <jw-pagination :items="unitHouse" @changePage="onChangePage" :pageSize=5 :styles="customStyles"></jw-pagination>
+                <card v-for="house in houses" :key="house.id"
+                :name="house.name" :address="house.address"></card>
+                <jw-pagination :items="unitHouse"
+                @changePage="onChangePage" :pageSize=5 :styles="customStyles"></jw-pagination>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Alert from '../components/Alert'
-import Card from '../components/Card'
-import {required, minLength, sameAs} from "vuelidate/lib/validators"
-import JWPagination from 'jw-vue-pagination'
+import axios from 'axios';
+import { required, minLength, sameAs } from 'vuelidate/lib/validators';
+import JWPagination from 'jw-vue-pagination';
+import Alert from '../components/Alert.vue';
+import Card from '../components/Card.vue';
 
-const customStyles ={
-    ul:{
-        border: '2px solid red'
-    },
-    li:{
-        display: 'inline-block',
-        border: '2px dotted green'
-    },
-    a:{
-        color: 'blue'
-    }
-}
+const customStyles = {
+  ul: {
+    border: '2px solid red',
+  },
+  li: {
+    display: 'inline-block',
+    border: '2px dotted green',
+  },
+  a: {
+    color: 'blue',
+  },
+};
 
 export default {
-	data() {
-        return {
-            houses: [],
-            loginForm: {
-                username: '',
-                password: ''
-            },
-            submitted: false,
-            signupForm: {
-                name: '',
-                username: '',
-                password: '',
-				confirmPassword: '',
-            },
-            message: '',
-            showMessage: false,
-            customStyles,
-            unitHouse: ''
-        }
+  data() {
+    return {
+      houses: [],
+      loginForm: {
+        username: '',
+        password: '',
+      },
+      submitted: false,
+      signupForm: {
+        name: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+      },
+      message: '',
+      showMessage: false,
+      customStyles,
+      unitHouse: '',
+    };
+  },
+  components: {
+    alert: Alert,
+    card: Card,
+    'jw-pagination': JWPagination,
+  },
+  validations: {
+    loginForm: {
+      firstName: { required },
+      username: { required },
     },
-    components: {
-		alert: Alert,
-		card: Card,
-        JWPagination
+    signupForm: {
+      name: { required },
+      username: { required },
+      password: { required, minLength: minLength(6) },
+      confirmPassword: { required, sameAsPassword: sameAs('password') },
     },
-    validations:{
-        loginForm:{
-            firstName: {required},
-            username: {required}
-        },
-        signupForm:{
-            name: {required},
-            username: {required},
-            password: {required, minLength: minLength(6)},
-            confirmPassword: {required, sameAsPassword: sameAs('password')}
-        }
-    },
-    methods: {
-        getHouses() {
-            const path = 'http://localhost:5000/api/building'
-            axios.get(path)
-            .then((res) => {
-                this.houses = res.data.houses
-            })
-            .catch((error) => {
-                // eslint-disable-next-line
+  },
+  methods: {
+    getHouses() {
+      const path = 'http://localhost:5000/api/building';
+      axios.get(path)
+        .then((res) => {
+          this.houses = res.data.houses;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
                 console.error(error)
-            });
-        },
-        onSubmit(e) {
-            e.preventDefault()
-            this.$refs.loginModal.hide()
-            this.submitted = true
-            // stop here if form is  invalid
-            this.$v.$touch()
-            if(this.$v.$invalid){
-                return
-            }
-            alert('success!:-)\n\n' + JSON.stringify(this.loginForm))
-        },
-        onChangePage(houses){
-            // update page of items
-            this.houses = houses
-        }
+        });
     },
-    created() {
-        this.getHouses()
-    }
-}
+    onSubmit(e) {
+      e.preventDefault();
+      this.$refs.loginModal.hide();
+      this.submitted = true;
+      // stop here if form is  invalid
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      }
+      // eslint-disable-next-line no-console
+      console.log(`success!:-)\n\n${JSON.stringify(this.loginForm)}`);
+    },
+    onChangePage(houses) {
+      // update page of items
+      this.houses = houses;
+    },
+  },
+  created() {
+    this.getHouses();
+  },
+};
 </script>
 
 <style>

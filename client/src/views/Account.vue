@@ -29,47 +29,47 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import Alert from '../components/Alert'
+import { mapGetters, mapActions } from 'vuex';
+import Alert from '../components/Alert';
 
 export default {
-    name: 'Account',
-    data() {
-        return {
-            message: '',
-            showMessage: false
-        }
+  name: 'Account',
+  data() {
+    return {
+      message: '',
+      showMessage: false,
+    };
+  },
+  components: {
+    alert: Alert,
+  },
+  computed: {
+    ...mapGetters({ Houses: 'StateHouses', User: 'StateUser' }),
+  },
+  methods: {
+    ...mapActions(['CreateHouse', 'GetHouses', 'DeleteHouse']),
+    async submit() {
+      try {
+        await this.CreateHouse(this.form);
+      } catch (error) {
+        throw "Sorry you can't make a post now!";
+      }
     },
-    components: {
-        alert: Alert
+    async deleteHome() {
+      try {
+        await this.DeleteHouse(house.id);
+        this.message = 'Book removed!';
+        this.showMessage = true;
+      } catch (error) {
+        throw 'Error deleting item';
+      }
+      this.GetHouses();
     },
-    computed: {
-    ...mapGetters({Houses: "StateHouses", User: "StateUser"}),
-    },
-    methods: {
-        ...mapActions(["CreateHouse", "GetHouses", "DeleteHouse"]),
-        async submit() {
-            try {
-                await this.CreateHouse(this.form);
-            } catch (error) {
-                throw "Sorry you can't make a post now!"
-            }
-        },  
-        async deleteHome() {
-            try{
-                await this.DeleteHouse(house.id);
-                this.message = 'Book removed!'
-                this.showMessage = true
-            }catch(error) {
-                throw "Error deleting item"
-            }
-            this.GetHouses()
-        },
-    },
-    created() {
-        this.GetHouses()
-    }
-}
+  },
+  created() {
+    this.GetHouses();
+  },
+};
 </script>
 
 <style>

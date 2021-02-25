@@ -35,17 +35,17 @@
 
 <script>
 export default {
-    name: 'Header',
-    computed: {
-        isLoggedIn: () => { return this.$store.getters.isAuthenticated }
+  name: 'Header',
+  computed: {
+    isLoggedIn: () => this.$store.getters.isAuthenticated,
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('LogOut');
+      this.$router.push('/login');
     },
-    methods: {
-        async logout (){
-            await this.$store.dispatch('LogOut')
-            this.$router.push('/login')
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>

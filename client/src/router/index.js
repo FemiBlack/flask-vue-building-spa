@@ -1,45 +1,45 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 import store from '../store';
 // import Wizard from './Wizard'
-import FirstStep from '../components/steps/FirstStep'
-import SecondStep from '../components/steps/SecondStep'
-import ThirdStep from '../components/steps/ThirdStep'
-import FourthStep from '../components/steps/FourthStep'
+import FirstStep from '../components/steps/FirstStep';
+import SecondStep from '../components/steps/SecondStep';
+import ThirdStep from '../components/steps/ThirdStep';
+import FourthStep from '../components/steps/FourthStep';
 
-import Home from '../views/Home'
-import Register from '../views/Register'
-import Login from '../views/Login'
-import Account from '../views/Account'
-import RegisterBuilding from '../views/RegisterBuilding'
+import Home from '../views/Home';
+import Register from '../views/Register';
+import Login from '../views/Login';
+import Account from '../views/Account';
+import RegisterBuilding from '../views/RegisterBuilding';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
     children: [
       {
         path: '/register',
         name: 'Register',
         component: Register,
-        meta: {guest: true}
+        meta: { guest: true },
       },
       {
         path: '/login',
         name: 'Login',
         component: Login,
-        meta: {guest: true}
-      }
-    ]
+        meta: { guest: true },
+      },
+    ],
   },
   {
     path: '/account',
     name: 'Account',
     component: Account,
-    meta: {requireAuth: true}
+    meta: { requireAuth: true },
   },
   {
     path: '/registerbuilding',
@@ -49,25 +49,25 @@ const routes = [
       {
         path: '/first',
         name: 'FirstStep',
-        component: FirstStep
+        component: FirstStep,
       },
       {
         path: '/second',
         name: 'SecondStep',
-        component: SecondStep
+        component: SecondStep,
       },
       {
         path: '/third',
         name: 'ThirdStep',
-        component: ThirdStep
+        component: ThirdStep,
       },
       {
         path: '/fourth',
         name: 'FourthStep',
-        component: FourthStep
-      }
-    ]
-  }
+        component: FourthStep,
+      },
+    ],
+  },
   // {
   //   path: "/about",
   //   name: "About",
@@ -80,32 +80,32 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
 
 router.beforeEach((to, from, next) => {
-    if(to.matched.some(record => record.meta.requiresAuth)) {
-      if (store.getters.isAuthenticated) {
-        next()
-        return
-      }
-      next('/login')
-    } else {
-      next()
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (store.getters.isAuthenticated) {
+      next();
+      return;
     }
-})
+    next('/login');
+  } else {
+    next();
+  }
+});
 router.beforeEach((to, from, next) => {
-    if (to.matched.some((record) => record.meta.guest)) {
-      if (store.getters.isAuthenticated) {
-        next("/account");
-        return;
-      }
-      next();
-    } else {
-      next();
+  if (to.matched.some((record) => record.meta.guest)) {
+    if (store.getters.isAuthenticated) {
+      next('/account');
+      return;
     }
+    next();
+  } else {
+    next();
+  }
 });
 
 export default router;
