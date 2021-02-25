@@ -1,4 +1,5 @@
-# housing_app
+# Flask-Vue-SPA
+A platform for adding and pulling building surveys to a database
 
 ## Project setup(Front End | VueJS)
 
