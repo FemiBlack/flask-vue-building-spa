@@ -2,6 +2,7 @@ from flask import Response, request
 from database.models import Building, User
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_restful import Resource
+import json
 
 from mongoengine.errors import FieldDoesNotExist, \
     NotUniqueError, DoesNotExist, ValidationError, InvalidQueryError
@@ -68,3 +69,15 @@ class HouseApi(Resource):
             raise MovieNotExistsError
         except Exception:
             raise InternalServerError
+
+class UserHouseApi(Resource):
+    @jwt_required()
+    def get(self):
+        user_id = get_jwt_identity()
+        houses = Building.objects.to_json()
+        user_houses = []
+        temp_house = json.loads(houses)
+        for house in temp_house:
+            if house['added_by']['$oid'] == user_id:
+                user_houses.append(house)
+        return Response(json.dumps(user_houses), mimetype="application/json", status=200)

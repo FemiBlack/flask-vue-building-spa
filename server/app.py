@@ -8,19 +8,20 @@ from resources.routes import initialize_routes
 from resources.errors import errors
 
 app = Flask(__name__)
+app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'somesecretkey'
 app.config.from_envvar('ENV_FILE_LOCATION')
-# export(linux)|set(windows) ENV_FILE_LOCATION=./.env
+# export(linux)|set(windows) ENV_FILE_LOCATION=./.envipip
+app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://localhost/housing_app'}
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
-app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://localhost/housing_app'}
-CORS(app, resources={r'/*': {'origins': '*'}})
-
-
 initialize_db(app)
 initialize_routes(api)
 
+CORS(app, resources={r'/*': {'origins': '*'}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host='127.0.0.1', port=9000, debug=True)

@@ -1,12 +1,12 @@
 <template>
   <fieldset>
     <h2>Building Particulars</h2>
-    <div class="form-group" :class="{ 'has-error': $v.buildCode.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.building_no.$error }">
       <label for="build_code">Building No./ Code</label>
-      <input type="text" class="form-control" v-model.trim="buildCode"
-      @input="$v.buildCode.$touch()">
+      <input type="text" class="form-control" v-model.trim="building_no"
+      @input="$v.building_no.$touch()">
       <span class="help-block"
-    v-if="$v.buildCode.$error && !$v.buildCode.required">Building code is required</span>
+    v-if="$v.building_no.$error && !$v.building_no.required">Building code is required</span>
     </div>
     <div class="form-group" :class="{ 'has-error': $v.address.$error }">
       <label for="build_code">Address of Building</label>
@@ -15,39 +15,43 @@
       <span class="help-block"
     v-if="$v.address.$error && !$v.address.required">Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.dateType.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.date.$error }">
       <label for="build_code">Date/Type of Construction (If Known)</label>
-      <input type="text" class="form-control" v-model.trim="dateType"
-      @input="$v.dateType.$touch()">
+      <input type="date" class="form-control" v-model.trim="date"
+      @input="$v.date.$touch()">
       <span class="help-block"
-    v-if="$v.dateType.$error && !$v.dateType.required">Building code is required</span>
+    v-if="$v.date.$error && !$v.date.required">Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.age.$error }">
-      <label for="build_code">Age of Building</label>
-      <input type="text" class="form-control" v-model.trim="age" @input="$v.age.$touch()">
+    <div class="form-group" :class="{ 'has-error': $v.building_age.$error }">
+      <label for="build_code">building_age of Building</label>
+      <input type="text" class="form-control" v-model.trim="building_age"
+      @input="$v.building_age.$touch()">
       <span class="help-block"
-    v-if="$v.age.$error && !$v.age.required">Building code is required</span>
+    v-if="$v.building_age.$error && !$v.building_age.required">Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.dateRepair.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.last_repair_date.$error }">
       <label for="build_code">Date of last Repair/Intervention</label>
-      <input type="text" class="form-control" v-model.trim="dateRepair"
-      @input="$v.dateRepair.$touch()">
+      <input type="date" class="form-control" v-model.trim="last_repair_date"
+      @input="$v.last_repair_date.$touch()">
       <span class="help-block"
-    v-if="$v.dateRepair.$error && !$v.dateRepair.required">Building code is required</span>
+    v-if="$v.last_repair_date.$error && !$v.last_repair_date.required">
+    Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.natureRepair.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.nature_of_repair.$error }">
       <label for="build_code">Nature of Repair/Intervention</label>
-      <input type="text" class="form-control" v-model.trim="natureRepair"
-      @input="$v.natureRepair.$touch()">
+      <input type="text" class="form-control" v-model.trim="nature_of_repair"
+      @input="$v.nature_of_repair.$touch()">
       <span class="help-block"
-    v-if="$v.natureRepair.$error && !$v.natureRepair.required">Building code is required</span>
+    v-if="$v.nature_of_repair.$error && !$v.nature_of_repair.required">
+    Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.freqrepair.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.frequency_of_repair.$error }">
       <label for="build_code">Frequency of Repair/Interventions</label>
-      <input type="text" class="form-control" v-model.trim="freqrepair"
-      @input="$v.freqrepair.$touch()">
+      <input type="text" class="form-control" v-model.trim="frequency_of_repair"
+      @input="$v.frequency_of_repair.$touch()">
       <span class="help-block"
-    v-if="$v.freqrepair.$error && !$v.freqrepair.required">Building code is required</span>
+    v-if="$v.frequency_of_repair.$error && !$v.frequency_of_repair.required">
+    Building code is required</span>
     </div>
     <div class="form-group" :class="{ 'has-error': $v.geometry.$error }">
       <label for="build_code">Geometry of the Building</label>
@@ -55,12 +59,13 @@
       <span class="help-block"
     v-if="$v.geometry.$error && !$v.geometry.required">Building code is required</span>
     </div>
-    <div class="form-group" :class="{ 'has-error': $v.specialChar.$error }">
+    <div class="form-group" :class="{ 'has-error': $v.characteristics.$error }">
       <label for="build_code">Special Characteristics</label>
-      <input type="text" class="form-control" v-model.trim="specialChar"
-      @input="$v.specialChar.$touch()">
+      <input type="text" class="form-control" v-model.trim="characteristics"
+      @input="$v.characteristics.$touch()">
       <span class="help-block"
-    v-if="$v.specialChar.$error && !$v.specialChar.required">Building code is required</span>
+    v-if="$v.characteristics.$error && !$v.characteristics.required">
+    Building code is required</span>
     </div>
     <div class="form-group" :class="{ 'has-error': $v.compliance.$error }">
       <label for="build_code">Compliance with Intended</label>
@@ -85,37 +90,37 @@ import { required, minLength, numeric } from 'vuelidate/lib/validators';
 export default {
   data() {
     return {
-      buildCode: '',
+      building_no: '',
       address: '',
-      dateType: '',
-      age: '',
-      dateRepair: '',
-      natureRepair: '',
-      freqRepair: '',
+      date: '',
+      building_age: '',
+      last_repair_date: '',
+      nature_of_repair: '',
+      frequency_of_repair: '',
       geometry: '',
-      specialChar: '',
+      characteristics: '',
       compliance: '',
       deviation: '',
     };
   },
   validations: {
-    buildCode: { required },
+    building_no: { required },
     address: { required },
-    dateType: { required },
-    age: { required, numeric },
-    dateRepair: { required },
-    natureRepair: { required },
-    freqRepair: { required },
+    date: { required },
+    building_age: { required, numeric },
+    last_repair_date: { required },
+    nature_of_repair: { required },
+    frequency_of_repair: { required, numeric },
     geometry: { required },
-    specialChar: { required },
+    characteristics: { required },
     compliance: { required },
     deviation: { required, minLength: minLength(3) },
     form: [
-      'buildCode', 'address',
-      'dateType', 'age',
-      'dateRepair', 'natureRepair',
-      'freqRepair', 'geometry',
-      'specialChar', 'compliance',
+      'building_no', 'address',
+      'date', 'building_age',
+      'last_repair_date', 'nature_of_repair',
+      'frequency_of_repair', 'geometry',
+      'characteristics', 'compliance',
       'deviation',
     ],
   },

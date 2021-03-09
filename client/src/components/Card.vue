@@ -1,12 +1,14 @@
 <template>
-    <div class="card" style="width: 18rem;">
-        <img src="../assets/Cover.jpg" alt="building silhouette" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">{{ name }}</h5>
-            <p class="card-text">{{ address }}</p>
-            <a href="#" class="btn btn-primary">Go Somewhere</a>
-        </div>
-    </div>
+    <b-card
+    :title="name"
+    :img-src="require(`../assets/Cover.jpg`)"
+    img-top
+    img-alt="building silhouette"
+    style="width: 18rem;"
+    class="mb-2">
+      <b-card-text>{{ address }}</b-card-text>
+      <b-button href="#" variant="primary">Go Somewhere</b-button>
+    </b-card>
 </template>
 
 <script>

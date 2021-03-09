@@ -1,20 +1,23 @@
 import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
+import axios from 'axios';
 import BootstrapVue from 'bootstrap-vue';
-import 'bootstrap/dist/css/bootstrap.css';
 import Vuelidate from 'vuelidate';
 import VueFormWizard from 'vue-form-wizard';
 import 'vue-form-wizard/dist/vue-form-wizard.min.css';
-import axios from 'axios';
+import router from './router';
+import store from './store';
+import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/js/bootstrap.min.js';
+import App from './App.vue';
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
 Vue.use(VueFormWizard);
-
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:5000/';
+/* eslint no-underscore-dangle: 0 */
+// axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://127.0.0.1:9000/';
+// crossDomain:true
+// eslint-disable-next-line
 axios.interceptors.response.use(undefined, (error) => {
   if (error) {
     const originalRequest = error.config;

@@ -2,16 +2,17 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
 // import Wizard from './Wizard'
-import FirstStep from '../components/steps/FirstStep';
-import SecondStep from '../components/steps/SecondStep';
-import ThirdStep from '../components/steps/ThirdStep';
-import FourthStep from '../components/steps/FourthStep';
+import FirstStep from '../components/steps/FirstStep.vue';
+import SecondStep from '../components/steps/SecondStep.vue';
+import ThirdStep from '../components/steps/ThirdStep.vue';
+import FourthStep from '../components/steps/FourthStep.vue';
+import StepFormValidation from '../components/steps/StepFormValidation.vue';
 
-import Home from '../views/Home';
-import Register from '../views/Register';
-import Login from '../views/Login';
-import Account from '../views/Account';
-import RegisterBuilding from '../views/RegisterBuilding';
+import Home from '../views/Home.vue';
+import Register from '../views/Register.vue';
+// import Login from '../views/Login.vue';
+import Account from '../views/Account.vue';
+import RegisterBuilding from '../views/RegisterBuilding.vue';
 
 Vue.use(VueRouter);
 
@@ -20,25 +21,31 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    children: [
-      {
-        path: '/register',
-        name: 'Register',
-        component: Register,
-        meta: { guest: true },
-      },
-      {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-        meta: { guest: true },
-      },
-    ],
+    // children: [
+    //   {
+    //     path: '/login',
+    //     name: 'Login',
+    //     component: Login,
+    //     meta: { guest: true },
+    //   },
+    // ],
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    meta: { guest: true },
   },
   {
     path: '/account',
     name: 'Account',
     component: Account,
+    meta: { requireAuth: true },
+  },
+  {
+    path: '/newbuilding',
+    name: 'StepFormValidation',
+    component: StepFormValidation,
     meta: { requireAuth: true },
   },
   {

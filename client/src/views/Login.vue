@@ -2,23 +2,27 @@
     <!-- login-modal -->
   <b-modal ref="loginModal" id="login-modal" title="Login" hide-footer>
     <b-form @submit="handleSubmit" class="w-100">
-      <b-form-group id="form-uname-group" label="Username:" label-for="form-uname-input">
+      <b-form-group id="form-uname-group" label="Email:" label-for="form-uname-input">
         <b-form-input id="form-uname-input"
               type="text"
-              v-model="loginForm.username"
-              placeholder="Enter Username">
-                <span v-if="submitted && !$v.form.username.required"
-                class="invalid-feedback">Username is required</span>
+              :class="{'is-invalid': submitted && $v.loginForm.email.$error}"
+              v-model="loginForm.email"
+              placeholder="Enter Email">
         </b-form-input>
+        <span v-if="submitted && !$v.loginForm.email.required"
+        style="color:red;">Email is required</span>
+        <span v-if="submitted && !$v.loginForm.email.email"
+        style="color:red;">Valid Email is required</span>
       </b-form-group>
       <b-form-group id="form-password-group" label="Password:" label-for="form-password-input">
         <b-form-input id="form-password-input"
               type="password"
+              :class="{'is-invalid': submitted && $v.loginForm.password.$error}"
               v-model="loginForm.password"
               placeholder="Enter password">
-                <span v-if="submitted && !$v.form.lastName.required"
-                class="invalid-feedback">Password is required</span>
         </b-form-input>
+        <span v-if="submitted && !$v.loginForm.password.required"
+        style="color:red;">Password is required</span>
       </b-form-group>
       <b-button type="submit" variant="primary">Login</b-button>
     </b-form>
@@ -27,15 +31,16 @@
 </template>
 
 <script>
+// import { TweenMax, Power4 } from 'gsap';
 import { mapActions } from 'vuex';
-import { required } from 'vuelidate/lib/validators';
+import { required, email } from 'vuelidate/lib/validators';
 
 export default {
   name: 'Login',
   data() {
     return {
-      form: {
-        username: '',
+      loginForm: {
+        email: '',
         password: '',
       },
       submitted: false,
@@ -43,27 +48,18 @@ export default {
     };
   },
   validations: {
-    form: {
-      username: { required },
+    loginForm: {
+      email: { required, email },
       password: { required },
     },
   },
   methods: {
-    handleSubmit() {
-      this.submitted = true;
-      // stop here if form is  invalid
-      this.$v.$touch();
-      if (this.$v.$invalid) {
-        return;
-      }
-      // eslint-disable-next-line no-alert
-      alert(`success!:-)\n\n${JSON.stringify(this.user)}`);
-    },
     ...mapActions(['LogIn']),
     async submit() {
-      const User = new FormData();
-      User.append('username', this.user.username);
-      User.append('password', this.user.password);
+      const User = {
+        email: this.loginForm.email,
+        password: this.loginForm.password,
+      };
       try {
         await this.LogIn(User);
         this.$router.push('/account');
@@ -72,6 +68,39 @@ export default {
         this.showError = true;
       }
     },
+    handleSubmit(e) {
+      e.preventDefault();
+      this.submitted = true;
+      // stop here if form is  invalid
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      }
+      this.submit();
+    },
+    // enter(el, done) {
+    //   TweenMax.fromTo(
+    //     el,
+    //     0.5,
+    //     {
+    //       alpha: 0,
+    //     },
+    //     {
+    //       alpha: 1,
+    //       ease: Power4.easeOut,
+    //     },
+    //   );
+    // },
+    // leave(el, done) {
+    //   TweenMax.to(el, 0.5, {
+    //     alpha: 0,
+    //     ease: Power4.easeOut,
+    //     onComplete: done,
+    //   });
+    // },
+    // handleClose() {
+    //   this.$router.go(-1);
+    // },
   },
 };
 </script>

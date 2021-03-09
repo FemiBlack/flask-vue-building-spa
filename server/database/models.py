@@ -133,7 +133,7 @@ class Building(db.Document):
     frequency_of_repair = db.IntField()
     geometry = db.StringField()
     characteristics = db.ListField(db.StringField())
-    compliance = db.BooleanField()
+    compliance = db.StringField()
     deviation = db.StringField()
     external_env = db.EmbeddedDocumentField(BuildingExtEnv)
     internal_cond = db.EmbeddedDocumentField(BuildingIntCond)
@@ -153,6 +153,7 @@ class Building(db.Document):
 
 class User(db.Document):
     email = db.EmailField(required=True, unique=True)
+    username = db.StringField(required=True)
     password = db.StringField(required=True, min_length=6)
     houses = db.ListField(db.ReferenceField('Building', reverse_delete_rule=db.PULL))
 

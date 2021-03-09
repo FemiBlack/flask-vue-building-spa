@@ -11,7 +11,8 @@
                     placeholder="Enter your name"
                     v-model="formData.fullName">
                 <div v-if="hasError('fullName')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.fullName.required">Please provide a valid name</div>
+                    <div class="error" v-if="!$v.formData.fullName.required">
+                    Please provide a valid name</div>
                 </div>
             </div>
             <div class="form-group">
@@ -23,8 +24,10 @@
                     placeholder="Enter your email"
                     v-model="formData.email">
                 <div v-if="hasError('email')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.email.required">Email field is required</div>
-                    <div class="error" v-if="!$v.formData.email.email">Should be in email format</div>
+                    <div class="error" v-if="!$v.formData.email.required">
+                    Email field is required</div>
+                    <div class="error" v-if="!$v.formData.email.email">
+                    Should be in email format</div>
                 </div>
             </div>
         </tab-content>
@@ -38,7 +41,8 @@
                     placeholder="Enter your Company / Organization name"
                     v-model="formData.companyName">
                 <div v-if="hasError('companyName')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.companyName.required">Please provide a valid company name</div>
+                    <div class="error" v-if="!$v.formData.companyName.required">
+                    Please provide a valid company name</div>
                 </div>
             </div>
             <div class="form-group">
@@ -50,8 +54,10 @@
                     placeholder="Enter Total Number of Employees"
                     v-model="formData.numberOfEmployees">
                 <div v-if="hasError('numberOfEmployees')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.numberOfEmployees.required">Please provide number of employees in your company</div>
-                    <div class="error" v-if="!$v.formData.numberOfEmployees.numeric">Should be a valid value</div>
+                    <div class="error" v-if="!$v.formData.numberOfEmployees.required">
+                    Please provide number of employees in your company</div>
+                    <div class="error" v-if="!$v.formData.numberOfEmployees.numeric">
+                    Should be a valid value</div>
                 </div>
             </div>
         </tab-content>
@@ -69,7 +75,8 @@
                     <option>Other</option>
                 </select>
                 <div v-if="hasError('referral')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.referral.required">Please select one of the fields.</div>
+                    <div class="error" v-if="!$v.formData.referral.required">
+                    Please select one of the fields.</div>
                 </div>
             </div>
             <div class="form-group form-check">
@@ -79,7 +86,8 @@
                     v-model="formData.terms">
                 <label class="form-check-label">I accept the terms and conditions</label>
                 <div v-if="hasError('terms')" class="invalid-feedback">
-                    <div class="error" v-if="!$v.formData.terms.required">Please select terms and conditions</div>
+                    <div class="error" v-if="!$v.formData.terms.required">
+                    Please select terms and conditions</div>
                 </div>
             </div>
         </tab-content>
@@ -107,12 +115,13 @@ export default {
       validationRules: [
         { fullName: { required }, email: { required, email } },
         { companyName: { required }, numberOfEmployees: { required, numeric } },
-        { referral: { required }, terms: { required, email } },
+        { referral: { required }, terms: { required } },
       ],
     };
   },
   methods: {
     onComplete() {
+      // eslint-disable-next-line
       alert('Submitting Form!');
     },
   },

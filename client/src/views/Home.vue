@@ -1,32 +1,40 @@
 <template>
-    <div class="container-fluid">
-        <alert :message="message" v-if="showMessage"></alert>
-        <div class="row">
-            <div v-if="!houses[0]">No houses in the database</div>
-            <div class="col-sm-3" v-else>
-                <card v-for="house in houses" :key="house.id"
-                :name="house.name" :address="house.address"></card>
-                <jw-pagination :items="unitHouse"
-                @changePage="onChangePage" :pageSize=5 :styles="customStyles"></jw-pagination>
-            </div>
-        </div>
-    </div>
+  <b-container>
+    <alert :message="message" v-if="showMessage"></alert>
+    <b-row class="mt-4">
+      <div v-if="!unitHouses[0]">No houses in the database</div>
+      <b-col v-for="house in unitHouses" :key="house.id" cols="4" v-else>
+        <card
+          :name="house.building_no"
+          :address="house.address"
+        ></card>
+      </b-col>
+    </b-row>
+    <b-row>
+      <jw-pagination
+          :items="Houses"
+          @changePage="onChangePage"
+          :pageSize="5"
+          :styles="customStyles"
+      ></jw-pagination>
+    </b-row>
+  <Login/>
+  <!-- <Register/> -->
+  </b-container>
 </template>
 
 <script>
-import axios from 'axios';
-import { required, minLength, sameAs } from 'vuelidate/lib/validators';
+// import axios from 'axios';
+import { mapGetters, mapActions } from 'vuex';
+import { required } from 'vuelidate/lib/validators';
 import JWPagination from 'jw-vue-pagination';
 import Alert from '../components/Alert.vue';
 import Card from '../components/Card.vue';
+import Login from './Login.vue';
 
 const customStyles = {
-  ul: {
-    border: '2px solid red',
-  },
   li: {
     display: 'inline-block',
-    border: '2px dotted green',
   },
   a: {
     color: 'blue',
@@ -36,27 +44,21 @@ const customStyles = {
 export default {
   data() {
     return {
-      houses: [],
       loginForm: {
         username: '',
         password: '',
       },
       submitted: false,
-      signupForm: {
-        name: '',
-        username: '',
-        password: '',
-        confirmPassword: '',
-      },
       message: '',
       showMessage: false,
       customStyles,
-      unitHouse: '',
+      unitHouses: [],
     };
   },
   components: {
     alert: Alert,
     card: Card,
+    Login,
     'jw-pagination': JWPagination,
   },
   validations: {
@@ -64,25 +66,18 @@ export default {
       firstName: { required },
       username: { required },
     },
-    signupForm: {
-      name: { required },
-      username: { required },
-      password: { required, minLength: minLength(6) },
-      confirmPassword: { required, sameAsPassword: sameAs('password') },
-    },
+  },
+  computed: {
+    ...mapGetters({ Houses: 'StateHouses', User: 'StateUser' }),
   },
   methods: {
-    getHouses() {
-      const path = 'http://localhost:5000/api/building';
-      axios.get(path)
-        .then((res) => {
-          this.houses = res.data.houses;
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-                console.error(error)
-        });
-    },
+    ...mapActions(['GetHouses']),
+    // async getHouses() {
+    //   const x = await this.GetHouses();
+    //   // eslint-disable-next-line
+    //   console.log(x);
+    // },
+
     onSubmit(e) {
       e.preventDefault();
       this.$refs.loginModal.hide();
@@ -95,30 +90,30 @@ export default {
       // eslint-disable-next-line no-console
       console.log(`success!:-)\n\n${JSON.stringify(this.loginForm)}`);
     },
-    onChangePage(houses) {
+    onChangePage(unitHouses) {
       // update page of items
-      this.houses = houses;
+      this.unitHouses = unitHouses;
     },
   },
   created() {
-    this.getHouses();
+    this.GetHouses();
   },
 };
 </script>
 
 <style>
-    *{
-        font-family: 'Roboto';
-    }
-    .navbar{
-        margin-bottom: 50px;
-        border-radius: 0;
-    }
-    .jumbotron{
-        margin-bottom: 0;
-    }
-    footer{
-        background-color: #f2f2f2;
-        padding: 25px;
-    }
+* {
+  font-family: "Roboto";
+}
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
+}
+.jumbotron {
+  margin-bottom: 0;
+}
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
 </style>

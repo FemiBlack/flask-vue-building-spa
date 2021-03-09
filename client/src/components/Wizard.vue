@@ -2,21 +2,21 @@
 <template>
   <div>
 
-    <form-wizard @onComplete="addHouse" shape="square" color="#3498db">
-      <tab-content title="Personal details" icon="ti-user" route='/first'
+    <form-wizard @on-complete="addHouse" shape="square" color="#3498db">
+      <tab-content title="Personal details" icon="ti-user"
       :before-change="()=>validateStep('step1')">
         <step1 ref="step1" @on-validate="mergePartialModels"></step1>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings" route='/second'
+      <tab-content title="Additional Info" icon="ti-settings"
       :before-change="()=>validateStep('step2')">
         <step2 ref="step2" @on-validate="mergePartialModels"></step2>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings" route='/third'
-      :before-change="()=>validateStep('step2')">
+      <tab-content title="Additional Info" icon="ti-settings"
+      :before-change="()=>validateStep('step3')">
         <step3 ref="step3" @on-validate="mergePartialModels"></step3>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings" route='/fourth'
-      :before-change="()=>validateStep('step2')">
+      <tab-content title="Additional Info" icon="ti-settings"
+      :before-change="()=>validateStep('step4')">
         <step4 ref="step4" @on-validate="mergePartialModels"></step4>
       </tab-content>
       <tab-content title="Last step" icon="ti-check">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import FirstStep from './steps/FirstStep.vue';
 import SecondStep from './steps/SecondStep.vue';
 import ThirdStep from './steps/ThirdStep.vue';
@@ -40,6 +41,7 @@ export default {
   data() {
     return {
       finalModel: {},
+      showError: false,
     };
   },
   components: {
@@ -49,6 +51,18 @@ export default {
     step4: FourthStep,
   },
   methods: {
+    ...mapActions(['CreateHouse']),
+    async addHouse() {
+      try {
+        await this.CreateHouse(this.finalModel);
+        // this.$router.push('/account');
+        this.showError = false;
+      } catch (error) {
+        this.showError = true;
+      }
+      // eslint-disable-next-line
+      alert('yay');
+    },
     validateStep(name) {
       const refToValidate = this.$refs[name];
       return refToValidate.validate();
