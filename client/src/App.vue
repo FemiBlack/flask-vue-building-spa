@@ -22,3 +22,23 @@ export default {
   },
 };
 </script>
+
+<style>
+* {
+  font-family: "Roboto";
+}
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
+}
+.jumbotron {
+  margin-bottom: 0;
+}
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+.invalid-feedback {
+  color:red;
+}
+</style>

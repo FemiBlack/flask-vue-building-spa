@@ -1,38 +1,121 @@
 <template>
   <fieldset>
     <h2>Building Internal Condition</h2>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.internal_cond.moisture.$error }">
-      <label for="build_code">Moisture/ Humid Air</label>
-      <input type="text" class="form-control" v-model.trim="internal_cond.moisture"
-      @input="$v.internal_cond.moisture.$touch()">
-      <span class="help-block"
-      v-if="$v.internal_cond.moisture.$error && !$v.internal_cond.moisture.required">
-      First name is required</span>
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.internal_cond.excess_heat.$error }">
-      <label for="build_code">Excessive Heat</label>
-      <input type="text" class="form-control" v-model.trim="internal_cond.excess_heat"
-      @input="$v.internal_cond.excess_heat.$touch()">
-      <span class="help-block"
-      v-if="$v.internal_cond.excess_heat.$error && !$v.internal_cond.excess_heat.required">
-      First name is required</span>
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.internal_cond.ventilation.$error }">
-      <label for="build_code">Ventilation</label>
-      <input type="text" class="form-control" v-model.trim="internal_cond.ventilation"
-      @input="$v.internal_cond.ventilation.$touch()">
-      <span class="help-block"
-      v-if="$v.internal_cond.ventilation.$error && !$v.internal_cond.ventilation.required">
-      First name is required</span>
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.internal_cond.dry_air.$error }">
-      <label for="build_code">Dry Air</label>
-      <input type="text" class="form-control" v-model.trim="internal_cond.dry_air"
-      @input="$v.internal_cond.dry_air.$touch()">
-      <span class="help-block"
-      v-if="$v.internal_cond.dry_air.$error && !$v.internal_cond.dry_air.required">
-      First name is required</span>
-    </div>
+    <table>
+      <thead>
+        <th>Field</th>
+        <th>Response</th>
+        <th>Remark</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Moisture/ Humid Air</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.moisture.response.$error }">
+              <input type="text" class="form-control" v-model.trim="internal_cond.moisture.response"
+              @input="$v.internal_cond.moisture.response.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.moisture.response.$error
+              && !$v.internal_cond.moisture.response.required">
+              Response is required</span>
+            </div>
+          </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.moisture.remark.$error }">
+              <input type="text" class="form-control" v-model.trim="internal_cond.moisture.remark"
+              @input="$v.internal_cond.moisture.remark.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.moisture.remark.$error
+              && !$v.internal_cond.moisture.remark.required">
+              Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Excessive Heat</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.excess_heat.response.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.excess_heat.response"
+              @input="$v.internal_cond.excess_heat.response.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.excess_heat.response.$error
+              && !$v.internal_cond.excess_heat.response.required">
+              Response is required</span>
+            </div>
+          </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.excess_heat.remark.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.excess_heat.remark"
+              @input="$v.internal_cond.excess_heat.remark.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.excess_heat.remark.$error
+              && !$v.internal_cond.excess_heat.remark.required">
+              Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Ventilation</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.ventilation.response.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.ventilation.response"
+              @input="$v.internal_cond.ventilation.response.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.ventilation.response.$error
+              && !$v.internal_cond.ventilation.response.required">
+              Response is required</span>
+            </div>
+          </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.internal_cond.ventilation.remark.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.ventilation.remark"
+              @input="$v.internal_cond.ventilation.remark.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.ventilation.remark.$error
+              && !$v.internal_cond.ventilation.remark.required">
+              Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Dry Air</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.internal_cond.dry_air.response.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.dry_air.response"
+              @input="$v.internal_cond.dry_air.response.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.dry_air.response.$error
+              && !$v.internal_cond.dry_air.response.required">
+              Response is required</span>
+            </div>
+          </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.internal_cond.dry_air.remark.$error }">
+              <input type="text" class="form-control"
+              v-model.trim="internal_cond.dry_air.remark"
+              @input="$v.internal_cond.dry_air.remark.$touch()">
+              <span class="help-block"
+              v-if="$v.internal_cond.dry_air.remark.$error
+              && !$v.internal_cond.dry_air.remark.required">
+              Remark is required</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </fieldset>
 </template>
 
@@ -43,20 +126,29 @@ export default {
   data() {
     return {
       internal_cond: {
-        moisture: '',
-        excess_heat: '',
-        ventilation: '',
-        dry_air: '',
+        moisture: { response: '', remark: '' },
+        excess_heat: { response: '', remark: '' },
+        ventilation: { response: '', remark: '' },
+        dry_air: { response: '', remark: '' },
       },
     };
   },
   validations: {
     internal_cond: {
-      moisture: { required },
-      excess_heat: { required },
-      ventilation: { required },
-      dry_air: { required },
-      form: ['internal_cond.moisture', 'internal_cond.excess_heat', 'internal_cond.ventilation', 'internal_cond.dry_air'],
+      moisture: { response: { required }, remark: { required } },
+      excess_heat: { response: { required }, remark: { required } },
+      ventilation: { response: { required }, remark: { required } },
+      dry_air: { response: { required }, remark: { required } },
+      form: [
+        'internal_cond.moisture.response',
+        'internal_cond.moisture.remark',
+        'internal_cond.excess_heat.response',
+        'internal_cond.excess_heat.remark',
+        'internal_cond.ventilation.response',
+        'internal_cond.ventilation.remark',
+        'internal_cond.dry_air.response',
+        'internal_cond.dry_air.remark',
+      ],
     },
   },
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <footer class="container-fluid text-center">
-    <p>Made with</p>
+    <p>Made with ☕ and ❤</p>
   </footer>
 </template>
 

@@ -131,7 +131,5 @@ export default {
 </script>
 
 <style scoped>
-.invalid-feedback {
-  color:red;
-}
+
 </style>

@@ -1,269 +1,608 @@
 <template>
   <fieldset>
     <h2>Building External Environment</h2>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.drv_rain.$error }">
-      <label for="build_code">Driving Rain</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.drv_rain"
-        @input="$v.external_env.drv_rain.$touch()"
-      />
-      <span class="help-block"
-        v-if="$v.external_env.drv_rain.$error && !$v.external_env.drv_rain.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.drainage_issue.$error }">
-      <label for="build_code">drainage_issue Issue</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.drainage_issue"
-        @input="$v.external_env.drainage_issue.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.drainage_issue.$error && !$v.external_env.drainage_issue.required"
-        >First name is required</span
-      >
-    </div>
-    <div
-      class="form-group"
-      v-bind:class="{ 'has-error': $v.external_env.water_log.$error }"
-    >
-      <label for="build_code">Water Logged</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.water_log"
-        @input="$v.external_env.water_log.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.water_log.$error && !$v.external_env.water_log.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.unkempt.$error }">
-      <label for="build_code">Dirty/Unkept Surroundings</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.unkempt"
-        @input="$v.external_env.unkempt.$touch()"
-      />
-      <span class="help-block"
-        v-if="$v.external_env.unkempt.$error && !$v.external_env.unkempt.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.pollution.$error }">
-      <label for="build_code">Aggressive Chemicals/Pollution</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.pollution"
-        @input="$v.external_env.pollution.$touch()"
-      />
-      <span class="help-block"
-        v-if="$v.external_env.pollution.$error && !$v.external_env.pollution.required"
-        >First name is required</span
-      >
-    </div>
-    <div
-      class="form-group"
-      v-bind:class="{ 'has-error': $v.external_env.topography.$error }"
-    >
-      <label for="build_code">Topography</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.topography"
-        @input="$v.external_env.topography.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.topography.$error && !$v.external_env.topography.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.radiation.$error }">
-      <label for="build_code">Ultra-Violet Radiation</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.radiation"
-        @input="$v.external_env.radiation.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.radiation.$error && !$v.external_env.radiation.required"
-        >First name is required</span
-      >
-    </div>
-    <div
-      class="form-group"
-      v-bind:class="{ 'has-error': $v.external_env.extreme_temp.$error }"
-    >
-      <label for="build_code">Extreme Temperature</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.extreme_temp"
-        @input="$v.external_env.extreme_temp.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.extreme_temp.$error && !$v.external_env.extreme_temp.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.flood.$error }">
-      <label for="build_code">Flood</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.flood"
-        @input="$v.external_env.flood.$touch()"
-      />
-      <span class="help-block"
-        v-if="$v.external_env.flood.$error && !$v.external_env.flood.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.fire_source.$error }">
-      <label for="build_code">Fire/ Heat Source</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.fire_source"
-        @input="$v.external_env.fire_source.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.fire_source.$error && !$v.external_env.fire_source.required"
-        >First name is required</span
-      >
-    </div>
-    <div
-      class="form-group"
-      v-bind:class="{ 'has-error': $v.external_env.traffic_issue.$error }"
-    >
-      <label for="build_code">Traffic Issues</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.traffic_issue"
-        @input="$v.external_env.traffic_issue.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.traffic_issue.$error && !$v.external_env.traffic_issue.required"
-        >First name is required</span
-      >
-    </div>
-    <div
-      class="form-group"
-      v-bind:class="{ 'has-error': $v.external_env.building_threat.$error }"
-    >
-      <label for="build_code">Threat from other buildings</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.building_threat"
-        @input="$v.external_env.building_threat.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.building_threat.$error && !$v.external_env.building_threat.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.wind.$error }">
-      <label for="build_code">Wind</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.wind"
-        @input="$v.external_env.wind.$touch()"
-      />
-      <span class="help-block" v-if="$v.external_env.wind.$error && !$v.external_env.wind.required"
-        >First name is required</span
-      >
-    </div>
-    <div class="form-group" v-bind:class="{ 'has-error': $v.external_env.moisture.$error }">
-      <label for="build_code">Moisture</label>
-      <input
-        type="text"
-        class="form-control"
-        v-model.trim="external_env.moisture"
-        @input="$v.external_env.moisture.$touch()"
-      />
-      <span
-        class="help-block"
-        v-if="$v.external_env.moisture.$error && !$v.external_env.moisture.required"
-        >First name is required</span
-      >
-    </div>
+    <table style="width: 100%;">
+      <thead>
+        <th>Field</th>
+        <th>Response</th>
+        <th>Remark</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Driving Rain</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.drv_rain.response.$error }">
+            <input
+              type="text"
+              class="form-control"
+              v-model.trim="external_env.drv_rain.response"
+              @input="$v.external_env.drv_rain.response.$touch()"
+            />
+            <span class="invalid-feedback"
+              v-if="$v.external_env.drv_rain.response.$error
+              && !$v.external_env.drv_rain.response.required"
+              >Response is required</span
+            >
+          </div>
+        </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.drv_rain.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.drv_rain.remark"
+                @input="$v.external_env.drv_rain.remark.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.drv_rain.remark.$error
+                && !$v.external_env.drv_rain.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Drainage Issue</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.drainage_issue.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.drainage_issue.response"
+                @input="$v.external_env.drainage_issue.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.drainage_issue.response.$error
+                && !$v.external_env.drainage_issue.response.required"
+                >Response is required</span>
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.drainage_issue.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.drainage_issue.remark"
+                @input="$v.external_env.drainage_issue.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.drainage_issue.remark.$error
+                && !$v.external_env.drainage_issue.remark.required"
+                >Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Water Logged</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.water_log.response.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.water_log.response"
+                @input="$v.external_env.water_log.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.water_log.response.$error
+                && !$v.external_env.water_log.response.required"
+                >Response is required</span>
+            </div>
+        </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.water_log.remark.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.water_log.remark"
+                @input="$v.external_env.water_log.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.water_log.remark.$error
+                && !$v.external_env.water_log.remark.required"
+                >Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Dirty/Unkept Surroundings</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.unkempt.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.unkempt.response"
+                @input="$v.external_env.unkempt.response.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.unkempt.response.$error
+                && !$v.external_env.unkempt.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.unkempt.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.unkempt.remark"
+                @input="$v.external_env.unkempt.remark.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.unkempt.remark.$error
+                && !$v.external_env.unkempt.remark.required"
+                >Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Aggressive Chemicals/Pollution</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.pollution.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.pollution.response"
+                @input="$v.external_env.pollution.response.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.pollution.response.$error
+                && !$v.external_env.pollution.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.pollution.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.pollution.remark"
+                @input="$v.external_env.pollution.remark.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.pollution.remark.$error
+                && !$v.external_env.pollution.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Topography</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.topography.response.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.topography.response"
+                @input="$v.external_env.topography.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.topography.response.$error
+                && !$v.external_env.topography.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.topography.remark.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.topography.remark"
+                @input="$v.external_env.topography.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.topography.remark.$error
+                && !$v.external_env.topography.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Ultra-Violet Radiation</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.radiation.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.radiation.response"
+                @input="$v.external_env.radiation.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.radiation.response.$error
+                && !$v.external_env.radiation.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.radiation.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.radiation.remark"
+                @input="$v.external_env.radiation.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.radiation.remark.$error
+                && !$v.external_env.radiation.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Extreme Temperature</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.extreme_temp.response.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.extreme_temp.response"
+                @input="$v.external_env.extreme_temp.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.extreme_temp.response.$error
+                && !$v.external_env.extreme_temp.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.extreme_temp.remark.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.extreme_temp.remark"
+                @input="$v.external_env.extreme_temp.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.extreme_temp.remark.$error
+                && !$v.external_env.extreme_temp.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Flood</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.flood.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.flood.response"
+                @input="$v.external_env.flood.response.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.flood.response.$error
+                && !$v.external_env.flood.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.flood.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.flood.remark"
+                @input="$v.external_env.flood.remark.$touch()"
+              />
+              <span class="invalid-feedback"
+                v-if="$v.external_env.flood.remark.$error
+                && !$v.external_env.flood.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Fire/ Heat Source</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.fire_source.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.fire_source.response"
+                @input="$v.external_env.fire_source.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.fire_source.response.$error
+                && !$v.external_env.fire_source.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.external_env.fire_source.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.fire_source.remark"
+                @input="$v.external_env.fire_source.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.fire_source.remark.$error
+                && !$v.external_env.fire_source.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Traffic Issues</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.traffic_issue.response.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.traffic_issue.response"
+                @input="$v.external_env.traffic_issue.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.traffic_issue.response.$error
+                && !$v.external_env.traffic_issue.response.required"
+                >Response is required</span>
+            </div>
+        </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.traffic_issue.remark.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.traffic_issue.remark"
+                @input="$v.external_env.traffic_issue.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.traffic_issue.remark.$error
+                && !$v.external_env.traffic_issue.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Threat from other buildings</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.building_threat.response.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.building_threat.response"
+                @input="$v.external_env.building_threat.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.building_threat.response.$error
+                && !$v.external_env.building_threat.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.building_threat.remark.$error }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.building_threat.remark"
+                @input="$v.external_env.building_threat.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.building_threat.remark.$error
+                && !$v.external_env.building_threat.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Wind</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.wind.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.wind.response"
+                @input="$v.external_env.wind.response.$touch()"
+              />
+              <span class="invalid-feedback"
+              v-if="$v.external_env.wind.response.$error
+              && !$v.external_env.wind.response.required"
+                >Response is required</span>
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.wind.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.wind.remark"
+                @input="$v.external_env.wind.remark.$touch()"
+              />
+              <span class="invalid-feedback"
+              v-if="$v.external_env.wind.remark.$error && !$v.external_env.wind.remark.required"
+                >Remark is required</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Moisture</td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.moisture.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.moisture.response"
+                @input="$v.external_env.moisture.response.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.moisture.response.$error
+                && !$v.external_env.moisture.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+              v-bind:class="{ 'has-error': $v.external_env.moisture.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="external_env.moisture.remark"
+                @input="$v.external_env.moisture.remark.$touch()"
+              />
+              <span
+                class="invalid-feedback"
+                v-if="$v.external_env.moisture.remark.$error
+                && !$v.external_env.moisture.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--
+     -->
   </fieldset>
 </template>
 
 <script>
-import { required, numeric } from 'vuelidate/lib/validators';
+import { required } from 'vuelidate/lib/validators';
 
 export default {
   data() {
     return {
       external_env: {
-        drv_rain: '',
-        drainage_issue: '',
-        water_log: '',
-        unkempt: '',
-        pollution: '',
-        topography: '',
-        radiation: '',
-        extreme_temp: '',
-        flood: '',
-        fire_source: '',
-        traffic_issue: '',
-        building_threat: '',
-        wind: '',
-        moisture: '',
+        drv_rain: { response: '', remark: '' },
+        drainage_issue: { response: '', remark: '' },
+        water_log: { response: '', remark: '' },
+        unkempt: { response: '', remark: '' },
+        pollution: { response: '', remark: '' },
+        topography: { response: '', remark: '' },
+        radiation: { response: '', remark: '' },
+        extreme_temp: { response: '', remark: '' },
+        flood: { response: '', remark: '' },
+        fire_source: { response: '', remark: '' },
+        traffic_issue: { response: '', remark: '' },
+        building_threat: { response: '', remark: '' },
+        wind: { response: '', remark: '' },
+        moisture: { response: '', remark: '' },
       },
     };
   },
   validations: {
     external_env: {
-      drv_rain: { required },
-      drainage_issue: { required },
-      water_log: { required },
-      unkempt: { required },
-      pollution: { required },
-      topography: { required },
-      radiation: { required, numeric },
-      extreme_temp: { required },
-      flood: { required },
-      fire_source: { required },
-      traffic_issue: { required },
-      building_threat: { required },
-      wind: { required },
-      moisture: { required },
+      drv_rain: { response: { required }, remark: { required } },
+      drainage_issue: { response: { required }, remark: { required } },
+      water_log: { response: { required }, remark: { required } },
+      unkempt: { response: { required }, remark: { required } },
+      pollution: { response: { required }, remark: { required } },
+      topography: { response: { required }, remark: { required } },
+      radiation: { response: { required }, remark: { required } },
+      extreme_temp: { response: { required }, remark: { required } },
+      flood: { response: { required }, remark: { required } },
+      fire_source: { response: { required }, remark: { required } },
+      traffic_issue: { response: { required }, remark: { required } },
+      building_threat: { response: { required }, remark: { required } },
+      wind: { response: { required }, remark: { required } },
+      moisture: { response: { required }, remark: { required } },
       form: [
-        'external_env.drv_rain',
-        'external_env.drainage_issue',
-        'external_env.water_log',
-        'external_env.unkempt',
-        'external_env.pollution',
-        'external_env.topography',
-        'external_env.radiation',
-        'external_env.extreme_temp',
-        'external_env.flood',
-        'external_env.fire_source',
-        'external_env.traffic_issue',
-        'external_env.building_threat',
-        'external_env.wind',
-        'external_env.moisture',
+        'external_env.drv_rain.response',
+        'external_env.drv_rain.remark',
+        'external_env.drainage_issue.response',
+        'external_env.drainage_issue.remark',
+        'external_env.water_log.response',
+        'external_env.water_log.remark',
+        'external_env.unkempt.response',
+        'external_env.unkempt.remark',
+        'external_env.pollution.response',
+        'external_env.pollution.remark',
+        'external_env.topography.response',
+        'external_env.topography.remark',
+        'external_env.radiation.response',
+        'external_env.radiation.remark',
+        'external_env.extreme_temp.response',
+        'external_env.extreme_temp.remark',
+        'external_env.flood.response',
+        'external_env.flood.remark',
+        'external_env.fire_source.response',
+        'external_env.fire_source.remark',
+        'external_env.traffic_issue.response',
+        'external_env.traffic_issue.remark',
+        'external_env.building_threat.response',
+        'external_env.building_threat.remark',
+        'external_env.wind.response',
+        'external_env.wind.remark',
+        'external_env.moisture.response',
+        'external_env.moisture.remark',
       ],
     },
   },

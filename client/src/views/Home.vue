@@ -3,7 +3,7 @@
     <alert :message="message" v-if="showMessage"></alert>
     <b-row class="mt-4">
       <div v-if="!unitHouses[0]">No houses in the database</div>
-      <b-col v-for="house in unitHouses" :key="house.id" cols="4" v-else>
+      <b-col v-for="house in unitHouses" :key="house.id" v-else>
         <card
           :name="house.building_no"
           :address="house.address"
@@ -11,12 +11,14 @@
       </b-col>
     </b-row>
     <b-row>
+      <b-col>
       <jw-pagination
           :items="Houses"
           @changePage="onChangePage"
           :pageSize="5"
           :styles="customStyles"
       ></jw-pagination>
+      </b-col>
     </b-row>
   <Login/>
   <!-- <Register/> -->
@@ -102,18 +104,5 @@ export default {
 </script>
 
 <style>
-* {
-  font-family: "Roboto";
-}
-.navbar {
-  margin-bottom: 50px;
-  border-radius: 0;
-}
-.jumbotron {
-  margin-bottom: 0;
-}
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
-}
+
 </style>

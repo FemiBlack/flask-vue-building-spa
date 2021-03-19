@@ -43,8 +43,13 @@ const actions = {
     });
     commit('setUserHouses', response.data);
   },
-  async DeleteHouse(houseID) {
-    await axios.delete(`api/building/${houseID}`);
+  async DeleteHouse({ dispatch }, houseID) {
+    await axios.delete(`api/building/${houseID}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    await dispatch('GetUserHouses');
     // commit('SET_PRODUCTS', { products: res.data, houseID });
   },
   async LogOut({ commit }) {
