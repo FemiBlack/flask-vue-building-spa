@@ -1,5 +1,6 @@
 <template>
   <b-container>
+    <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Login</button>
     <alert :message="message" v-if="showMessage"></alert>
     <b-row class="mt-4">
       <div v-if="!unitHouses[0]">No houses in the database</div>
@@ -20,8 +21,6 @@
       ></jw-pagination>
       </b-col>
     </b-row>
-  <Login/>
-  <!-- <Register/> -->
   </b-container>
 </template>
 
@@ -32,7 +31,6 @@ import { required } from 'vuelidate/lib/validators';
 import JWPagination from 'jw-vue-pagination';
 import Alert from '../components/Alert.vue';
 import Card from '../components/Card.vue';
-import Login from './Login.vue';
 
 const customStyles = {
   li: {
@@ -60,7 +58,6 @@ export default {
   components: {
     alert: Alert,
     card: Card,
-    Login,
     'jw-pagination': JWPagination,
   },
   validations: {

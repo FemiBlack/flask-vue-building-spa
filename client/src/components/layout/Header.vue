@@ -3,7 +3,7 @@
     <div class="jumbotron">
       <div class="container text-center">
         <h1>Building Store</h1>
-        <p>Mission, Vission &amp; Values</p>
+        <p>Lorem ipsum dolor sit amet</p>
       </div>
     </div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
@@ -22,10 +22,8 @@
           <!-- Navbar Right Side-->
           <b-navbar-nav v-if="isLoggedIn">
             <b-nav-item @click="logout">Logout</b-nav-item>
-            <b-button variant="info" size="sm">
-              <router-link to="/registerbuilding" class="nav-link active"
-                >Make Entry</router-link
-              >
+            <b-button variant="success" to="/registerbuilding" size="sm">
+              Make Entry
             </b-button>
           </b-navbar-nav>
           <b-navbar-nav v-else>
@@ -35,12 +33,19 @@
         </b-collapse>
       </div>
     </b-navbar>
+    <!-- Login Component -->
+    <Login/>
   </header>
 </template>
 
 <script>
+import Login from '@/views/Login.vue';
+
 export default {
   name: 'Header',
+  components: {
+    Login,
+  },
   computed: {
     isLoggedIn() { return this.$store.getters.isAuthenticated; },
   },

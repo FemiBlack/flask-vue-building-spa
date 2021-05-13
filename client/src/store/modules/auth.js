@@ -11,7 +11,7 @@ const getters = {
 };
 const actions = {
   async Register({ dispatch }, form) {
-    await axios.post('api/auth/signup', form);
+    await axios.post('/api/auth/signup', form);
     const UserForm = {
       email: form.email,
       password: form.password,
@@ -19,12 +19,12 @@ const actions = {
     await dispatch('LogIn', UserForm);
   },
   async LogIn({ commit }, User) {
-    const response = await axios.post('api/auth/login', User);
+    const response = await axios.post('/api/auth/login', User);
     localStorage.setItem('token', response.data.token);
     await commit('setUser', User.email);
   },
   async CreateHouse({ dispatch }, house) {
-    await axios.post('api/building', house, {
+    await axios.post('/api/building', house, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -32,11 +32,11 @@ const actions = {
     await dispatch('GetHouses');
   },
   async GetHouses({ commit }) {
-    const response = await axios.get('api/building');
+    const response = await axios.get('/api/building');
     commit('setHouses', response.data);
   },
   async GetUserHouses({ commit }) {
-    const response = await axios.get('api/building/user', {
+    const response = await axios.get('/api/building/user', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -44,7 +44,7 @@ const actions = {
     commit('setUserHouses', response.data);
   },
   async DeleteHouse({ dispatch }, houseID) {
-    await axios.delete(`api/building/${houseID}`, {
+    await axios.delete(`/api/building/${houseID}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
