@@ -1,6 +1,5 @@
 <template>
   <b-container>
-    <button type="button" class="btn btn-success btn-sm" v-b-modal.book-modal>Login</button>
     <alert :message="message" v-if="showMessage"></alert>
     <b-row class="mt-4">
       <div v-if="!unitHouses[0]">No houses in the database</div>

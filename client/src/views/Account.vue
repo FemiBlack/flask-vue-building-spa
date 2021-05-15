@@ -43,13 +43,13 @@
           <div v-if="User">
               <p>Hi, {{User}}</p>
           </div>
-          <b-avatar>hi</b-avatar>
+          <!-- <b-avatar>hi</b-avatar>
           <router-link to="/">Field One</router-link>->wizard
           <router-link to="/newbuilding">Field Two</router-link>->wizard
           <button>Field Three</button>->modal|dropdown
           <button>Field Four</button>->modal|dropdown
           <button>Field Five</button>->modal|dropdown
-          <button>Field Six</button>->modal|dropdown
+          <button>Field Six</button>->modal|dropdown -->
         </b-col>
       </b-row>
     </b-container>
