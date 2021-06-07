@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = 'somesecretkey'
 DATABASE_URL = os.environ.get('DATABASE_URI')
 # export(linux)|set(windows) ENV_FILE_LOCATION=./.env
 app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
-# app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing'}
+# app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing_app'}
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)

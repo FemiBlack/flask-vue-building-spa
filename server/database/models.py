@@ -105,7 +105,7 @@ class BuildingMaintenance(db.EmbeddedDocument):
     planned_frequency =  db.DictField() # read-docs
 
 class NDTestRes(db.EmbeddedDocument):
-    code = db.StringField()
+    # code = db.StringField()
     grid = db.StringField()
     ultrasonic =  db.DictField() # read-docs
     eq_strength = db.IntField()
