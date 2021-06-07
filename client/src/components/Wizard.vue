@@ -2,20 +2,24 @@
 <template>
   <div>
 
-    <form-wizard @on-complete="addHouse" shape="square" color="#3498db">
-      <tab-content title="Personal details" icon="ti-user"
+    <form-wizard title="Register House"
+      subtitle="Add buildings here..."
+      @on-complete="addHouse"
+      shape="square"
+      color="#3498db">
+      <tab-content title="Building Particulars" icon="ti-user"
       :before-change="()=>validateStep('step1')">
         <step1 ref="step1" @on-validate="mergePartialModels"></step1>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings"
+      <tab-content title="External Environment" icon="ti-flag"
       :before-change="()=>validateStep('step2')">
         <step2 ref="step2" @on-validate="mergePartialModels"></step2>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings"
+      <tab-content title="Internal Condition" icon="ti-plus"
       :before-change="()=>validateStep('step3')">
         <step3 ref="step3" @on-validate="mergePartialModels"></step3>
       </tab-content>
-      <tab-content title="Additional Info" icon="ti-settings"
+      <tab-content title="Building State" icon="ti-heart"
       :before-change="()=>validateStep('step4')">
         <step4 ref="step4" @on-validate="mergePartialModels"></step4>
       </tab-content>

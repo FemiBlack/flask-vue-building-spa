@@ -1,6 +1,6 @@
 <template>
     <!-- login-modal -->
-  <b-modal ref="loginModal" id="login-modal" title="Login" hide-footer>
+  <b-modal hide-backdrop content-class="shadow" ref="loginModal" id="login-modal" title="Login" hide-footer>
     <b-form @submit="handleSubmit" class="w-100">
       <b-form-group id="form-uname-group" label="Email:" label-for="form-uname-input">
         <b-form-input id="form-uname-input"
@@ -77,6 +77,8 @@ export default {
         return;
       }
       this.submit();
+      this.$refs.loginModal.hide();
+
     },
     // enter(el, done) {
     //   TweenMax.fromTo(

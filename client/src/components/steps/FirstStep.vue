@@ -14,21 +14,21 @@
       <input type="text" class="form-control" v-model.trim="address"
       @input="$v.address.$touch()">
       <span class="help-block"
-    v-if="$v.address.$error && !$v.address.required">Building code is required</span>
+    v-if="$v.address.$error && !$v.address.required">Address is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.date.$error }">
       <label for="build_code">Date/Type of Construction (If Known)</label>
       <input type="date" class="form-control" v-model.trim="date"
       @input="$v.date.$touch()">
       <span class="help-block"
-    v-if="$v.date.$error && !$v.date.required">Building code is required</span>
+    v-if="$v.date.$error && !$v.date.required">Date of Construction is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.building_age.$error }">
-      <label for="build_code">building_age of Building</label>
+      <label for="build_code">Age of Building</label>
       <input type="text" class="form-control" v-model.trim="building_age"
       @input="$v.building_age.$touch()">
       <span class="help-block"
-    v-if="$v.building_age.$error && !$v.building_age.required">Building code is required</span>
+    v-if="$v.building_age.$error && !$v.building_age.required">Age is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.last_repair_date.$error }">
       <label for="build_code">Date of last Repair/Intervention</label>
@@ -36,7 +36,7 @@
       @input="$v.last_repair_date.$touch()">
       <span class="help-block"
     v-if="$v.last_repair_date.$error && !$v.last_repair_date.required">
-    Building code is required</span>
+    Date of Last Repair is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.nature_of_repair.$error }">
       <label for="build_code">Nature of Repair/Intervention</label>
@@ -44,7 +44,7 @@
       @input="$v.nature_of_repair.$touch()">
       <span class="help-block"
     v-if="$v.nature_of_repair.$error && !$v.nature_of_repair.required">
-    Building code is required</span>
+    Nature of Repair is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.frequency_of_repair.$error }">
       <label for="build_code">Frequency of Repair/Interventions</label>
@@ -52,13 +52,13 @@
       @input="$v.frequency_of_repair.$touch()">
       <span class="help-block"
     v-if="$v.frequency_of_repair.$error && !$v.frequency_of_repair.required">
-    Building code is required</span>
+    Frequency of Repair is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.geometry.$error }">
       <label for="build_code">Geometry of the Building</label>
       <input type="text" class="form-control" v-model.trim="geometry" @input="$v.geometry.$touch()">
       <span class="help-block"
-    v-if="$v.geometry.$error && !$v.geometry.required">Building code is required</span>
+    v-if="$v.geometry.$error && !$v.geometry.required">Geometry is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.characteristics.$error }">
       <label for="build_code">Special Characteristics</label>
@@ -66,27 +66,27 @@
       @input="$v.characteristics.$touch()">
       <span class="help-block"
     v-if="$v.characteristics.$error && !$v.characteristics.required">
-    Building code is required</span>
+    Special Characteristics is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.compliance.$error }">
       <label for="build_code">Compliance with Intended</label>
       <input type="text" class="form-control" v-model.trim="compliance"
       @input="$v.compliance.$touch()">
       <span class="help-block"
-    v-if="$v.compliance.$error && !$v.compliance.required">Building code is required</span>
+    v-if="$v.compliance.$error && !$v.compliance.required">Field is required</span>
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.deviation.$error }">
       <label for="build_code">Deviation from Intended Use/Misuse</label>
       <input type="text" class="form-control" v-model.trim="deviation"
       @input="$v.deviation.$touch()">
       <span class="help-block"
-    v-if="$v.deviation.$error && !$v.deviation.required">Building code is required</span>
+    v-if="$v.deviation.$error && !$v.deviation.required">Field is required</span>
     </div>
   </fieldset>
 </template>
 
 <script>
-import { required, minLength, numeric } from 'vuelidate/lib/validators';
+import { required, numeric } from 'vuelidate/lib/validators';
 
 export default {
   data() {
@@ -115,7 +115,7 @@ export default {
     geometry: { required },
     characteristics: { required },
     compliance: { required },
-    deviation: { required, minLength: minLength(3) },
+    deviation: { required },
     form: [
       'building_no', 'address',
       'date', 'building_age',

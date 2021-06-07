@@ -4,12 +4,32 @@
         <b-col>
           <alert :message="message" v-if="showMessage"></alert>
           <div class="posts" v-if="Houses[0]">
+            <p>You currently have ({{Houses.length}}) house(s) registered</p>
             <table style="width:100%;">
               <thead>
                 <th>House</th>
                 <th></th>
               </thead>
               <tbody v-for="(house, index) in Houses" :key="index">
+                <b-modal hide-backdrop content-class="shadow" ref="deleteHouseModal" id="delete-modal">
+                  <template #modal-header="{}">
+                    <!-- Emulate built in modal header close button action -->
+                    <h5>Warning</h5>
+                  </template>
+
+                  <template #default="{}">
+                    <p>Caution⚠, This action is irreversible</p>
+                  </template>
+                  <template #modal-footer="{cancel}">
+                    <!-- Emulate built in modal footer ok and cancel button actions -->
+                    <b-button size="sm" variant="danger" @click="deleteHome(house)">
+                      I understand
+                    </b-button>
+                    <b-button size="sm" variant="dark" @click="cancel()">
+                      Take me back!
+                    </b-button>
+                  </template>
+                </b-modal>
                 <tr>
                   <td>{{house.building_no}}</td>
                   <td>
@@ -18,7 +38,7 @@
                       <b-button
                         variant="danger"
                         size="sm"
-                        v-b-modal.delete-modal
+                        @click="$bvModal.show('delete-modal')"
                         >Delete</b-button>
                     </div>
                 </td>
@@ -30,26 +50,10 @@
               No registered houses found...😢😕
           </div>
         </b-col>
-        <b-modal ref="deleteHouseModal" id="delete-modal"
-          title="Delete Building Record?" hide-footer>
-          <p>Caution!This action is irreversible</p>
-          <b-button type="submit"
-            variant="danger"
-            @click="deleteHome(house)"
-            >Yes</b-button>
-          <b-button type="reset" variant="primary">No</b-button>
-        </b-modal>
         <b-col>
           <div v-if="User">
-              <p>Hi, {{User}}</p>
+              <b-alert show>Hi, {{User}}</b-alert>
           </div>
-          <!-- <b-avatar>hi</b-avatar>
-          <router-link to="/">Field One</router-link>->wizard
-          <router-link to="/newbuilding">Field Two</router-link>->wizard
-          <button>Field Three</button>->modal|dropdown
-          <button>Field Four</button>->modal|dropdown
-          <button>Field Five</button>->modal|dropdown
-          <button>Field Six</button>->modal|dropdown -->
         </b-col>
       </b-row>
     </b-container>
@@ -90,7 +94,7 @@ export default {
       try {
         // eslint-disable-next-line
         await this.DeleteHouse(house._id.$oid);
-        this.message = 'Book removed!';
+        this.message = 'Record removed!';
         this.showMessage = true;
       } catch (error) {
         // eslint-disable-next-line
@@ -99,6 +103,9 @@ export default {
       this.$refs.deleteHouseModal.hide();
       this.GetUserHouses();
     },
+    initModal() {
+      this.$refs.deleteHouseModal.hide();
+    }
   },
   created() {
     this.GetUserHouses();

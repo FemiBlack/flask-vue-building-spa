@@ -1,15 +1,15 @@
 <template>
   <header>
     <div class="jumbotron">
-      <div class="container text-center">
-        <h1>Building Store</h1>
-        <p>Lorem ipsum dolor sit amet</p>
-      </div>
+      <b-jumbotron header="Building Store" lead="A platform for adding survey records">
+        <p>For more information visit website</p>
+        <!-- <b-button variant="primary" href="#">More Info</b-button> -->
+      </b-jumbotron>
     </div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <!--fixed-top-->
       <div class="container">
-        <b-navbar-brand to="/" class="mr-4" exact-active-class="active">Flask Blog</b-navbar-brand>
+        <b-navbar-brand to="/" class="mr-4">Store</b-navbar-brand>
         <b-navbar-toggle target="nav-collapse">
         </b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
@@ -22,7 +22,7 @@
           <!-- Navbar Right Side-->
           <b-navbar-nav v-if="isLoggedIn">
             <b-nav-item @click="logout">Logout</b-nav-item>
-            <b-button variant="success" to="/registerbuilding" size="sm">
+            <b-button variant="success" to="/registerbuilding">
               Make Entry
             </b-button>
           </b-navbar-nav>
