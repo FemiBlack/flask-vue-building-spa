@@ -15,7 +15,7 @@ Vue.use(Vuelidate);
 Vue.use(VueFormWizard);
 /* eslint no-underscore-dangle: 0 */
 // axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 // crossDomain:true
 // eslint-disable-next-line
 axios.interceptors.response.use(undefined, (error) => {
