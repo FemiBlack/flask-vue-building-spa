@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2>General Well Being of Building</h2>
-    <table>
+    <table style="width: 100%;">
       <thead>
         <th>Field</th>
         <th>Response</th>

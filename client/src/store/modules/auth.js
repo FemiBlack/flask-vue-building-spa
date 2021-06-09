@@ -2,11 +2,15 @@ import axios from 'axios';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
   user: null,
+  house: null,
   houses: null,
+  userhouses: null,
 };
 const getters = {
   isAuthenticated: (state) => !!state.user,
-  StateHouses: (state) => state.houses,
+  StateAllHouses: (state) => state.houses,
+  StateHouse: (state) => state.house,
+  StateUserHouses: (state) => state.userhouses,
   StateUser: (state) => state.user,
 };
 const actions = {
@@ -29,11 +33,23 @@ const actions = {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
-    await dispatch('GetHouses');
+    await dispatch('GetAllHouses');
   },
-  async GetHouses({ commit }) {
+  async UpdateHouse({ dispatch }, payload, houseID) {
+    await axios.put(`/api/building/${houseID}`, payload, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+    await dispatch('GetUserHouses');
+  },
+  async GetHouse({ commit }, houseID) {
+    const response = await axios.get(`/api/building/${houseID}`);
+    commit('setHouse', response.data);
+  },
+  async GetAllHouses({ commit }) {
     const response = await axios.get('/api/building');
-    commit('setHouses', response.data);
+    commit('setAllHouses', response.data);
   },
   async GetUserHouses({ commit }) {
     const response = await axios.get('/api/building/user', {
@@ -62,11 +78,14 @@ const mutations = {
   setUser(state, username) {
     state.user = username;
   },
-  setHouses(state, houses) {
+  setHouse(state, house) {
+    state.house = house
+  },
+  setAllHouses(state, houses) {
     state.houses = houses;
   },
-  setUserHouses(state, houses) {
-    state.houses = houses;
+  setUserHouses(state, userhouses) {
+    state.userhouses = userhouses;
   },
   setDeleteHouse(state, houses) {
     state.houses = houses.id;

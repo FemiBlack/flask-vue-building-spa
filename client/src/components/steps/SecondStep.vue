@@ -618,4 +618,7 @@ export default {
 </script>
 
 <style>
+.has-error {
+  color: red;
+}
 </style>

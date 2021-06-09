@@ -1,15 +1,18 @@
 <template>
   <b-container>
     <alert :message="message" v-if="showMessage"></alert>
-    <b-row class="mt-4">
+    <!-- <b-row class="mt-4"> -->
       <div v-if="!unitHouses[0]">No houses in the database</div>
-      <b-col v-for="house in unitHouses" :key="house.id" v-else>
-        <card
-          :name="house.building_no"
-          :address="house.address"
-        ></card>
-      </b-col>
-    </b-row>
+      <b-card-group deck v-else>
+        <div v-for="house in unitHouses" :key="house.id">
+          <card
+            :name="house.building_no"
+            :address="house.address"
+            :id="house._id.$oid"
+          ></card>
+        </div>
+      </b-card-group>
+    <!-- </b-row> -->
     <b-row>
       <b-col>
       <jw-pagination
@@ -66,10 +69,10 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({ Houses: 'StateHouses', User: 'StateUser' }),
+    ...mapGetters({ Houses: 'StateAllHouses', User: 'StateUser' }),
   },
   methods: {
-    ...mapActions(['GetHouses']),
+    ...mapActions(['GetAllHouses']),
     // async getHouses() {
     //   const x = await this.GetHouses();
     //   // eslint-disable-next-line
@@ -94,7 +97,7 @@ export default {
     },
   },
   created() {
-    this.GetHouses();
+    this.GetAllHouses();
   },
 };
 </script>

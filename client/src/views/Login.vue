@@ -26,7 +26,7 @@
       </b-form-group>
       <b-button type="submit" variant="primary">Login</b-button>
     </b-form>
-        <p v-if="showError" id="error">Username or Password is incorrect</p>
+        <b-alert v-if="showError" variant="danger" show>Username or Password is incorrect</b-alert>
   </b-modal>
 </template>
 
@@ -64,6 +64,7 @@ export default {
         await this.LogIn(User);
         this.$router.push('/account');
         this.showError = false;
+        this.$refs.loginModal.hide();
       } catch (error) {
         this.showError = true;
       }
@@ -77,7 +78,6 @@ export default {
         return;
       }
       this.submit();
-      this.$refs.loginModal.hide();
 
     },
     // enter(el, done) {

@@ -110,6 +110,8 @@ class NDTestRes(db.EmbeddedDocument):
     ultrasonic =  db.DictField() # read-docs
     eq_strength = db.IntField()
     hammer_val = db.IntField()
+    avg_hammer_val = db.IntField()
+    avg_eq_strength = db.IntField()
 
 class BuildingWeatherTemp(db.EmbeddedDocument):
     temp_17 = db.DictField()
@@ -122,6 +124,17 @@ class BuildingWeatherRain(db.EmbeddedDocument):
     rain_18 = db.DictField()
     rain_19 = db.DictField()
     rain_20 = db.DictField()
+
+class SiteDescription(db.EmbeddedDocument):
+    location = db.StringField()
+    surr_veg = db.StringField()
+    surr_out = db.StringField()
+    wall_mat = db.StringField()
+    roof_mat = db.StringField()
+    ceil_mat = db.StringField()
+    windows_mat = db.StringField()
+    door_mat = db.StringField()
+    floor_finish = db.StringField()
 
 class Building(db.Document):
     building_no = db.StringField(required=True, unique=True)
@@ -148,6 +161,7 @@ class Building(db.Document):
     nd_test_res = db.EmbeddedDocumentField(NDTestRes)
     weather_info_temp = db.EmbeddedDocumentField(BuildingWeatherTemp)
     weather_info_rain = db.EmbeddedDocumentField(BuildingWeatherRain)
+    site_desc = db.EmbeddedDocumentField(SiteDescription)
     is_completed = db.BooleanField(default=False) # set to true on FIELD4 SUBMISSION
     added_by = db.ReferenceField('User')
 

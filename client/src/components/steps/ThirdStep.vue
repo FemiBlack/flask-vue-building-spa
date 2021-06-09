@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2>Building Internal Condition</h2>
-    <table>
+    <table style="width: 100%;">
       <thead>
         <th>Field</th>
         <th>Response</th>
@@ -163,5 +163,7 @@ export default {
 </script>
 
 <style>
-
+.has-error {
+  color: red;
+}
 </style>

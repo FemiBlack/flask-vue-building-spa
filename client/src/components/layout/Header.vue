@@ -21,10 +21,14 @@
           </b-navbar-nav>
           <!-- Navbar Right Side-->
           <b-navbar-nav v-if="isLoggedIn">
-            <b-nav-item @click="logout">Logout</b-nav-item>
-            <b-button variant="success" to="/registerbuilding">
+            <b-nav-form>
+              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+            </b-nav-form>
+            <b-nav-item><b-button size="sm" variant="success" to="/registerbuilding">
               Make Entry
-            </b-button>
+            </b-button></b-nav-item>
+            <b-nav-item @click="logout">Logout</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-else>
             <b-nav-item v-b-modal.login-modal>Login</b-nav-item>

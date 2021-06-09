@@ -2,30 +2,28 @@
 <template>
   <div>
 
-    <form-wizard title="Register House"
-      subtitle="Add buildings here..."
-      @on-complete="addHouse"
+    <form-wizard title="Update House Record"
+      subtitle="Update buildings here..."
+      @on-complete="updateHouse"
       shape="square"
       color="#3498db">
-      <tab-content title="Building Particulars" icon="ti-user"
+      <tab-content title="Non-Destructive Test Result" icon="ti-user"
       :before-change="()=>validateStep('step1')">
         <step1 ref="step1" @on-validate="mergePartialModels"></step1>
       </tab-content>
-      <tab-content title="External Environment" icon="ti-flag"
+      <!-- <tab-content title="NDTR" icon="ti-flag"
+      :before-change="()=>validateStep('step2')">
+        <step2 ref="step2" @on-validate="mergePartialModels"></step2>
+      </tab-content> -->
+      <tab-content title="Site Description" icon="ti-plus"
       :before-change="()=>validateStep('step2')">
         <step2 ref="step2" @on-validate="mergePartialModels"></step2>
       </tab-content>
-      <tab-content title="Internal Condition" icon="ti-plus"
+      <tab-content title="Completed?" icon="ti-check"
       :before-change="()=>validateStep('step3')">
         <step3 ref="step3" @on-validate="mergePartialModels"></step3>
       </tab-content>
-      <tab-content title="Building State" icon="ti-heart"
-      :before-change="()=>validateStep('step4')">
-        <step4 ref="step4" @on-validate="mergePartialModels"></step4>
-      </tab-content>
       <!-- <tab-content title="Last step" icon="ti-check">
-      You have reached the final step, Hit the [finish] button to save your progress...
-      On the [Account] page, hit the [update] button to continue progress
                 Here is your final model:
                 <pre>{{finalModel}}</pre>
       </tab-content> -->
@@ -38,10 +36,10 @@
 
 <script>
 import { mapActions } from 'vuex';
-import FirstStep from './steps/FirstStep.vue';
-import SecondStep from './steps/SecondStep.vue';
-import ThirdStep from './steps/ThirdStep.vue';
-import FourthStep from './steps/FourthStep.vue';
+import FifthStep from './steps/FifthStep.vue';
+// import SixthStep from './steps/SixthStep.vue';
+import SeventhStep from './steps/SeventhStep.vue';
+import CheckBox from './steps/CheckBox.vue';
 
 export default {
   data() {
@@ -51,16 +49,16 @@ export default {
     };
   },
   components: {
-    step1: FirstStep,
-    step2: SecondStep,
-    step3: ThirdStep,
-    step4: FourthStep,
+    step1: FifthStep,
+    // step2: SixthStep,
+    step2: SeventhStep,
+    step3: CheckBox,
   },
   methods: {
-    ...mapActions(['CreateHouse']),
-    async addHouse() {
+    ...mapActions(['UpdateHouse']),
+    async updateHouse() {
       try {
-        await this.CreateHouse(this.finalModel);
+        await this.UpdateHouse(this.finalModel);
         // this.$router.push('/account');
         this.showError = false;
         this.$router.push('/account');

@@ -10,6 +10,8 @@ import StepFormValidation from '../components/steps/StepFormValidation.vue';
 
 import Home from '../views/Home.vue';
 import Register from '../views/Register.vue';
+import ViewHouse from '../views/ViewHouse.vue';
+import EditBuilding from '../views/EditBuilding.vue';
 // import Login from '../views/Login.vue';
 import Account from '../views/Account.vue';
 import RegisterBuilding from '../views/RegisterBuilding.vue';
@@ -74,6 +76,18 @@ const routes = [
         component: FourthStep,
       },
     ],
+  },
+  {
+    path: '/viewhouse/:id',
+    name: 'ViewHouse',
+    component: ViewHouse,
+    // meta: { guest: true },
+  },
+  {
+    path: '/editbuilding/:id',
+    name: 'EditBuilding',
+    component: EditBuilding,
+    meta: { requireAuth: true },
   },
   // {
   //   path: "/about",
