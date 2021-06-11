@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <Header/>
-    <router-view />
+    <transition name="slide" mode="out-in">
+      <router-view />
+    </transition>
     <Footer/>
   </div>
 </template>
@@ -24,15 +22,9 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
 * {
   font-family: "Roboto";
-}
-.navbar {
-  margin-bottom: 50px;
-  border-radius: 0;
-}
-.jumbotron {
-  margin-bottom: 0;
 }
 footer {
   background-color: #f2f2f2;
@@ -40,5 +32,14 @@ footer {
 }
 .invalid-feedback {
   color:red;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity .5s, transform .5s;
+}
+.slide-enter,
+.slide-leave-to{
+  opacity: 0;
+  transform: translateX(-30%)
 }
 </style>

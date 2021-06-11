@@ -35,10 +35,10 @@
                   <td>{{house.building_no}}</td>
                   <td>
                     <div class="btn-group" role="group">
-                      <b-button v-if="house.is_completed" variant="warning" :to="`/editbuilding/${house._id.$oid}`" size="sm">Update</b-button>
+                      <b-button v-if="!house.is_completed" variant="warning" :to="`/editbuilding/${house._id.$oid}`" size="sm">Update</b-button>
                       <b-button v-else variant="primary" 
                         size="sm"
-                        :to="`/viewbuilding/${house._id.$oid}`"
+                        :to="`/viewhouse/${house._id.$oid}`"
                         >View House</b-button>
                       <b-button
                         variant="danger"

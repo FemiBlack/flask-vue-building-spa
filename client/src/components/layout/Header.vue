@@ -1,12 +1,12 @@
 <template>
   <header>
     <div class="jumbotron">
-      <b-jumbotron header="Building Store" lead="A platform for adding survey records">
+      <b-jumbotron header="Service Life Database" lead="A platform for adding survey records">
         <p>For more information visit website</p>
         <!-- <b-button variant="primary" href="#">More Info</b-button> -->
       </b-jumbotron>
     </div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar toggleable="lg" type="dark" id="nav" variant="dark">
       <!--fixed-top-->
       <div class="container">
         <b-navbar-brand to="/" class="mr-4">Store</b-navbar-brand>
@@ -31,7 +31,7 @@
             <b-nav-item @click="logout">Logout</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-else>
-            <b-nav-item v-b-modal.login-modal>Login</b-nav-item>
+            <b-nav-item @click="$bvModal.show('login-modal')">Login</b-nav-item>
             <b-nav-item to="/register">Register</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
@@ -63,10 +63,17 @@ export default {
 </script>
 
 <style scoped>
-.active {
+/* .active {
   color: #42b983;
+} */
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
 }
-.jumbotron{
+.jumbotron {
   margin-bottom: 0;
+}
+#nav a.router-link-exact-active {
+  color: white;
 }
 </style>

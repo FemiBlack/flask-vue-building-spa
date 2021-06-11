@@ -1,20 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
-// import Wizard from './Wizard'
 import FirstStep from '../components/steps/FirstStep.vue';
 import SecondStep from '../components/steps/SecondStep.vue';
 import ThirdStep from '../components/steps/ThirdStep.vue';
 import FourthStep from '../components/steps/FourthStep.vue';
-import StepFormValidation from '../components/steps/StepFormValidation.vue';
 
 import Home from '../views/Home.vue';
-import Register from '../views/Register.vue';
 import ViewHouse from '../views/ViewHouse.vue';
-import EditBuilding from '../views/EditBuilding.vue';
-// import Login from '../views/Login.vue';
 import Account from '../views/Account.vue';
-import RegisterBuilding from '../views/RegisterBuilding.vue';
 
 Vue.use(VueRouter);
 
@@ -35,25 +29,19 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: Register,
+    component: () => import(/*webpackChunkName: "Register"*/'../views/Register.vue'),
     meta: { guest: true },
   },
   {
     path: '/account',
     name: 'Account',
     component: Account,
-    meta: { requireAuth: true },
-  },
-  {
-    path: '/newbuilding',
-    name: 'StepFormValidation',
-    component: StepFormValidation,
-    meta: { requireAuth: true },
+    meta: { requiresAuth: true },
   },
   {
     path: '/registerbuilding',
     name: 'RegisterBuilding',
-    component: RegisterBuilding,
+    component: () => import(/*webpackChunkName: "RegisterBuilding"*/ '../views/RegisterBuilding.vue'),
     children: [
       {
         path: '/first',
@@ -76,28 +64,36 @@ const routes = [
         component: FourthStep,
       },
     ],
+    meta: { requiresAuth: true },
   },
   {
     path: '/viewhouse/:id',
     name: 'ViewHouse',
     component: ViewHouse,
-    // meta: { guest: true },
   },
   {
     path: '/editbuilding/:id',
     name: 'EditBuilding',
-    component: EditBuilding,
-    meta: { requireAuth: true },
+    component: () => import(/*webpackChunkName: "EditBuilding"*/ '../views/EditBuilding.vue'),
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      const exists = store.destinations.find(
+        destination => destination.slug === to.params.slug
+      );
+      if (exists){
+        next()
+      }
+      else {
+        next({name: 'notFound'})
+      }
+    },
   },
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue")
-  // }
+  {
+    path: '/404',
+    alias: '*',
+    name: 'notFound',
+    component: () =>import(/*webpackChunkName: "NotFound"*/ '../views/NotFound.vue'),
+  }
 ];
 
 const router = new VueRouter({
@@ -112,7 +108,7 @@ router.beforeEach((to, from, next) => {
       next();
       return;
     }
-    next('/login');
+    next('/');
   } else {
     next();
   }

@@ -54,7 +54,7 @@
         <span v-if="submitted && !$v.form.confirmPassword.sameAsPassword"
         class="invalid-feedback">Passwords do not match</span>
       </b-form-group>
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
     <p v-if="showError" id="error">Username already exists</p>

@@ -24,9 +24,12 @@
         <span v-if="submitted && !$v.loginForm.password.required"
         style="color:red;">Password is required</span>
       </b-form-group>
-      <b-button type="submit" variant="primary">Login</b-button>
+      <b-button type="submit" variant="primary">
+        <b-spinner v-show="isSpinner" small></b-spinner>
+        Login
+      </b-button>
     </b-form>
-        <b-alert v-if="showError" variant="danger" show>Username or Password is incorrect</b-alert>
+        <b-alert v-if="showError" variant="danger" class="mt-2" show>Username or Password is incorrect</b-alert>
   </b-modal>
 </template>
 
@@ -45,6 +48,7 @@ export default {
       },
       submitted: false,
       showError: false,
+      isSpinner: false,
     };
   },
   validations: {
@@ -64,14 +68,17 @@ export default {
         await this.LogIn(User);
         this.$router.push('/account');
         this.showError = false;
+        this.isSpinner = false;
         this.$refs.loginModal.hide();
       } catch (error) {
         this.showError = true;
+        this.isSpinner = false;
       }
     },
     handleSubmit(e) {
       e.preventDefault();
       this.submitted = true;
+      this.isSpinner = true;
       // stop here if form is  invalid
       this.$v.$touch();
       if (this.$v.$invalid) {
