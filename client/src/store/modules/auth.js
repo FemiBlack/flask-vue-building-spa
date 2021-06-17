@@ -35,7 +35,8 @@ const actions = {
     });
     await dispatch('GetAllHouses');
   },
-  async UpdateHouse({ dispatch }, payload, houseID) {
+  async UpdateHouse({ dispatch }, {payload, houseID}) {
+    localStorage.setItem('userID', houseID);
     await axios.put(`/api/building/${houseID}`, payload, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

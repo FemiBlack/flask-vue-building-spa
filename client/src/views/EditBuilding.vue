@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <EditWizard/>
+    <EditWizard />
   </div>
 </template>
 
 <script>
-import EditWizard from '../components/EditWizard.vue';
+import EditWizard from "../components/EditWizard.vue";
 
 export default {
-  name: 'EditBuilding',
+  name: "EditBuilding",
   components: {
     EditWizard,
   },

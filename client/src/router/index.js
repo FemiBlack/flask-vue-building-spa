@@ -1,10 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
-import FirstStep from '../components/steps/FirstStep.vue';
-import SecondStep from '../components/steps/SecondStep.vue';
-import ThirdStep from '../components/steps/ThirdStep.vue';
-import FourthStep from '../components/steps/FourthStep.vue';
 
 import Home from '../views/Home.vue';
 import ViewHouse from '../views/ViewHouse.vue';
@@ -17,14 +13,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    // children: [
-    //   {
-    //     path: '/login',
-    //     name: 'Login',
-    //     component: Login,
-    //     meta: { guest: true },
-    //   },
-    // ],
   },
   {
     path: '/register',
@@ -40,28 +28,20 @@ const routes = [
   },
   {
     path: '/registerbuilding',
-    name: 'RegisterBuilding',
+    // name: 'RegisterBuilding',
     component: () => import(/*webpackChunkName: "RegisterBuilding"*/ '../views/RegisterBuilding.vue'),
     children: [
       {
-        path: '/first',
+        path: '',
+        alias: 'first',
         name: 'FirstStep',
-        component: FirstStep,
+        component: () => import(/*webpackChunkName: "Field One"*/ '@/components/Wizard.vue'),
       },
       {
-        path: '/second',
+        path: 'second/:id',
         name: 'SecondStep',
-        component: SecondStep,
-      },
-      {
-        path: '/third',
-        name: 'ThirdStep',
-        component: ThirdStep,
-      },
-      {
-        path: '/fourth',
-        name: 'FourthStep',
-        component: FourthStep,
+        // component: SecondStep,
+        component: () => import(/*webpackChunkName: "Field Two"*/ '@/components/EditWizard.vue'),
       },
     ],
     meta: { requiresAuth: true },
@@ -71,28 +51,28 @@ const routes = [
     name: 'ViewHouse',
     component: ViewHouse,
   },
-  {
-    path: '/editbuilding/:id',
-    name: 'EditBuilding',
-    component: () => import(/*webpackChunkName: "EditBuilding"*/ '../views/EditBuilding.vue'),
-    meta: { requiresAuth: true },
-    beforeEnter: (to, from, next) => {
-      const exists = store.destinations.find(
-        destination => destination.slug === to.params.slug
-      );
-      if (exists){
-        next()
-      }
-      else {
-        next({name: 'notFound'})
-      }
-    },
-  },
+  // {
+  //   path: '/editbuilding/:id',
+  //   name: 'EditBuilding',
+  //   component: () => import(/*webpackChunkName: "EditBuilding"*/ '../views/EditBuilding.vue'),
+  //   meta: { requiresAuth: true },
+  //   // beforeEnter: (to, from, next) => {
+  //   //   const exists = store.destinations.find(
+  //   //     destination => destination.slug === to.params.slug
+  //   //   );
+  //   //   if (exists) {
+  //   //     next()
+  //   //   }
+  //   //   else {
+  //   //     next({ name: 'notFound' })
+  //   //   }
+  //   // },
+  // },
   {
     path: '/404',
     alias: '*',
     name: 'notFound',
-    component: () =>import(/*webpackChunkName: "NotFound"*/ '../views/NotFound.vue'),
+    component: () => import(/*webpackChunkName: "NotFound"*/ '../views/NotFound.vue'),
   }
 ];
 

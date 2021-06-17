@@ -3,6 +3,7 @@ import axios from 'axios';
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import VueFormWizard from 'vue-form-wizard';
+import titleMixin from './mixins/titleMixin'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css';
 import router from './router';
 import store from './store';
@@ -12,6 +13,7 @@ import App from './App.vue';
 
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
+Vue.mixin(titleMixin)
 Vue.use(VueFormWizard);
 /* eslint no-underscore-dangle: 0 */
 // axios.defaults.withCredentials = true;
@@ -24,7 +26,7 @@ axios.interceptors.response.use(undefined, (error) => {
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       store.dispatch('logOut');
-      return router.push('/login');
+      return router.push('/');
     }
   }
 });

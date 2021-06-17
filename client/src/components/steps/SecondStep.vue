@@ -618,7 +618,7 @@ export default {
 </script>
 
 <style>
-.has-error {
+.has-error, .invalid-feedback {
   color: red;
 }
 </style>

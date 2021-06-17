@@ -23,12 +23,12 @@
       :before-change="()=>validateStep('step4')">
         <step4 ref="step4" @on-validate="mergePartialModels"></step4>
       </tab-content>
-      <!-- <tab-content title="Last step" icon="ti-check">
+      <tab-content title="Last step" icon="ti-check">
       You have reached the final step, Hit the [finish] button to save your progress...
       On the [Account] page, hit the [update] button to continue progress
                 Here is your final model:
                 <pre>{{finalModel}}</pre>
-      </tab-content> -->
+      </tab-content>
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -46,7 +46,7 @@ import FourthStep from './steps/FourthStep.vue';
 export default {
   data() {
     return {
-      finalModel: {},
+      finalModel: {is_completed: 'second'},
       showError: false,
     };
   },
