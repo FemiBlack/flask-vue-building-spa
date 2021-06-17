@@ -23,7 +23,7 @@
       :before-change="()=>validateStep('step4')">
         <step4 ref="step4" @on-validate="mergePartialModels"></step4>
       </tab-content>
-      <tab-content title="Last step" icon="ti-check">
+      <!-- <tab-content title="Last step" icon="ti-check">
       You have reached the final step, Hit the [finish] button to save your progress...
       On the [Account] page, hit the [update] button to continue progress
                 Here is your final model:
@@ -31,7 +31,7 @@
       </tab-content>
       <transition name="fade" mode="out-in">
         <router-view></router-view>
-      </transition>
+      </transition> -->
       </form-wizard>
   </div>
 </template>

@@ -162,7 +162,7 @@ class Building(db.Document):
     weather_info_temp = db.EmbeddedDocumentField(BuildingWeatherTemp)
     weather_info_rain = db.EmbeddedDocumentField(BuildingWeatherRain)
     site_desc = db.EmbeddedDocumentField(SiteDescription)
-    is_completed = db.StringField(default='first') # set to true on FIELD4 SUBMISSION
+    is_completed = db.StringField() # set to true on FIELD4 SUBMISSION
     added_by = db.ReferenceField('User')
 
 class User(db.Document):
