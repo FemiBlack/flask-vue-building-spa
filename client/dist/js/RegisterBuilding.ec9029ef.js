@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["RegisterBuilding"],{a29f:function(e,t,n){"use strict";n.r(t);var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"container"},[n("router-view")],1)},r=[],s={title:"SLDB - Create House",name:"RegisterBuilding"},a=s,l=n("2877"),u=Object(l["a"])(a,i,r,!1,null,null,null);t["default"]=u.exports}}]);
-//# sourceMappingURL=RegisterBuilding.611b1014.js.map
+//# sourceMappingURL=RegisterBuilding.ec9029ef.js.map
