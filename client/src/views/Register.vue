@@ -3,6 +3,7 @@
   <!-- registration-modal -->
   <div class="container">
     <h2>Register Here</h2>
+    <b-alert v-if="showError" show variant="warning" id="error">Email or Username already exists</b-alert>
     <b-form @submit="handleSubmit" @reset="onResetSignup" class="w-100">
       <b-form-group
         id="form-name-signup-group"
@@ -14,7 +15,7 @@
           type="text"
           :class="{ 'is-invalid': submitted && $v.form.email.$error }"
           v-model="form.email"
-          placeholder="Enter Name"
+          placeholder="Enter Email"
         >
         </b-form-input>
         <span
@@ -93,10 +94,11 @@
           >Passwords do not match</span
         >
       </b-form-group>
-      <b-button type="submit" variant="primary" class="mr-2">Submit</b-button>
+      <b-button type="submit" variant="primary" class="mr-2">
+        <b-spinner v-show="isSpinner" small></b-spinner>
+        Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
-    <p v-if="showError" id="error">Username already exists</p>
   </div>
 </template>
 
@@ -117,6 +119,7 @@ export default {
       },
       showError: false,
       submitted: false,
+      isSpinner: false,
     };
   },
   validations: {
@@ -134,13 +137,17 @@ export default {
         await this.Register(payload);
         this.$router.push("/account");
         this.showError = false;
+        this.isSpinner = false;
       } catch (error) {
+        console.warn(error)
         this.showError = true;
+        this.isSpinner = false;
       }
     },
     handleSubmit(e) {
       e.preventDefault();
       this.submitted = true;
+      this.isSpinner = true;
       // stop here if form is  invalid
       this.$v.$touch();
       if (this.$v.$invalid) {

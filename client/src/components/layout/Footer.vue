@@ -1,6 +1,6 @@
 <template>
   <footer class="container-fluid text-center">
-    <p>Made with ☕ and ❤</p>
+    <p>Made with ☕ and ❤ by <a href="https://femiblack.github.io">femiblack</a></p>
   </footer>
 </template>
 

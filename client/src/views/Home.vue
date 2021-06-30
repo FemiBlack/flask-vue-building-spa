@@ -18,7 +18,7 @@
         <jw-pagination
           :items="Houses"
           @changePage="onChangePage"
-          :pageSize="5"
+          :pageSize="6"
           :styles="customStyles"
         ></jw-pagination>
       </b-col>
@@ -51,6 +51,7 @@ export default {
         username: "",
         password: "",
       },
+      search: '',
       submitted: false,
       message: "",
       showMessage: false,
@@ -71,6 +72,11 @@ export default {
   },
   computed: {
     ...mapGetters({ Houses: "StateAllHouses", User: "StateUser" }),
+    filteredList() {
+            return this.Houses.filter(post => {
+            return post.building_no.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
   },
   methods: {
     ...mapActions(["GetAllHouses"]),
@@ -93,6 +99,7 @@ export default {
       console.log(`success!:-)\n\n${JSON.stringify(this.loginForm)}`);
     },
     onChangePage(unitHouses) {
+    console.log(this.search)
       // update page of items
       this.unitHouses = unitHouses;
     },

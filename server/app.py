@@ -14,9 +14,7 @@ load_dotenv()
 app = Flask(__name__, static_folder='../client/dist/', static_url_path='/')
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'somesecretkey'
-# app.config.from_envvar('ENV_FILE_LOCATION')
 DATABASE_URL = os.environ.get('DATABASE_URI')
-# export(linux)|set(windows) ENV_FILE_LOCATION=./.env
 app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
 # app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing_app'}
 

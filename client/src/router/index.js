@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from '../store';
+import store from '@/store';
 
-import Home from '../views/Home.vue';
-import ViewHouse from '../views/ViewHouse.vue';
-import Account from '../views/Account.vue';
+import Home from '@/views/Home.vue';
+import ViewHouse from '@/views/ViewHouse.vue';
+import Account from '@/views/Account.vue';
 
 Vue.use(VueRouter);
 
@@ -15,9 +15,14 @@ const routes = [
     component: Home,
   },
   {
+    path:'/bulma',
+    name: 'Bulma',
+    component: () => import(/*webpackChunkName: "Bulma"*/'@/views/Bulma.vue'),
+  },
+  {
     path: '/register',
     name: 'Register',
-    component: () => import(/*webpackChunkName: "Register"*/'../views/Register.vue'),
+    component: () => import(/*webpackChunkName: "Register"*/'@/views/Register.vue'),
     meta: { guest: true },
   },
   {
@@ -29,7 +34,7 @@ const routes = [
   {
     path: '/registerbuilding',
     // name: 'RegisterBuilding',
-    component: () => import(/*webpackChunkName: "RegisterBuilding"*/ '../views/RegisterBuilding.vue'),
+    component: () => import(/*webpackChunkName: "RegisterBuilding"*/ '@/views/RegisterBuilding.vue'),
     children: [
       {
         path: '',
@@ -40,8 +45,12 @@ const routes = [
       {
         path: 'second/:id',
         name: 'SecondStep',
-        // component: SecondStep,
         component: () => import(/*webpackChunkName: "Field Two"*/ '@/components/EditWizard.vue'),
+      },
+      {
+        path: 'third/:id',
+        name: 'ThirdStep',
+        component: () => import(/*webpackChunkName: "Field Two"*/ '@/components/LastStepWizard.vue'),
       },
     ],
     meta: { requiresAuth: true },
@@ -51,13 +60,9 @@ const routes = [
     name: 'ViewHouse',
     component: ViewHouse,
   },
-  // {
-  //   path: '/editbuilding/:id',
-  //   name: 'EditBuilding',
-  //   component: () => import(/*webpackChunkName: "EditBuilding"*/ '../views/EditBuilding.vue'),
-  //   meta: { requiresAuth: true },
+
   //   // beforeEnter: (to, from, next) => {
-  //   //   const exists = store.destinations.find(
+  //   //   const exists = store.auth.find(
   //   //     destination => destination.slug === to.params.slug
   //   //   );
   //   //   if (exists) {
@@ -67,7 +72,6 @@ const routes = [
   //   //     next({ name: 'notFound' })
   //   //   }
   //   // },
-  // },
   {
     path: '/404',
     alias: '*',
@@ -77,7 +81,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes,
 });

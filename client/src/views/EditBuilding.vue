@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <EditWizard />
+    <EditWizard/>
   </div>
 </template>
 

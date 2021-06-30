@@ -28,10 +28,10 @@ class LoginApi(Resource):
     def post(self):
         try:
             body = request.get_json()
-            user = User.objects.get(email=body.get('email'))
+            user = User.objects.get(username=body.get('username'))
             authorized = user.check_password(body.get('password'))
             if not authorized:
-                return {'error': 'Email or password invalid'}, 401
+                return {'error': 'Username or password invalid'}, 401
 
             expires = datetime.timedelta(days=1)
             access_token = create_access_token(identity=str(user.id), expires_delta=expires)

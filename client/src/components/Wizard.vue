@@ -38,10 +38,10 @@
 
 <script>
 import { mapActions } from 'vuex';
-import FirstStep from './steps/FirstStep.vue';
-import SecondStep from './steps/SecondStep.vue';
-import ThirdStep from './steps/ThirdStep.vue';
-import FourthStep from './steps/FourthStep.vue';
+import FirstStep from './steps/field_one/FirstStep.vue';
+import SecondStep from './steps/field_one/SecondStep.vue';
+import ThirdStep from './steps/field_one/ThirdStep.vue';
+import FourthStep from './steps/field_one/FourthStep.vue';
 
 export default {
   data() {
@@ -57,15 +57,17 @@ export default {
     step4: FourthStep,
   },
   methods: {
+    alertDisplay() {
+        // $swal function calls SweetAlert into the application with the specified configuration.
+    },
     ...mapActions(['CreateHouse']),
     async addHouse() {
       try {
         await this.CreateHouse(this.finalModel);
-        // this.$router.push('/account');
-        this.showError = false;
+        this.$swal('Success', 'Building added successfully', 'success');
         this.$router.push('/account');
       } catch (error) {
-        this.showError = true;
+        this.$swal('Error', 'There was an error, try again later', 'warning');
       }
     },
     validateStep(name) {

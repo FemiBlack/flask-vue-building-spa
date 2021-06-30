@@ -321,7 +321,7 @@
               <td class="col-md-8">
                 <ul>
                   <li>{{ House.general_being.deformation.response }}</li>
-                  <li>{{ House.general_being.deformation.res }}</li>
+                  <li>{{ House.general_being.deformation.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -351,717 +351,762 @@
         </table>
       </div>
     </div>
-    <h3>VISUAL</h3>
-    <div class="row row-underline">
-      <div class="col-md-6">
-        <span class="deal-text">Quality of Component </span>
+    <section v-if="House.is_completed==='third' || House.is_completed==='completed'">
+      <h3>VISUAL</h3>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">Quality of Component </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Physical appearance :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>
+                      <li>{{ House.component_quality.physical_app.response }}</li>
+                    <li>{{ House.component_quality.physical_app.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Texture :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.texture.response }}</li>
+                    <li>{{ House.component_quality.texture.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Strength :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.strength.response }}</li>
+                    <li>{{ House.component_quality.strength.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Crack :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.crack.response }}</li>
+                    <li>{{ House.component_quality.crack.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Dimension :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.dimension.response }}</li>
+                    <li>{{ House.component_quality.dimension.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deflection :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.deflection.response }}</li>
+                    <li>{{ House.component_quality.deflection.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Spalling :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.spalling.response }}</li>
+                    <li>{{ House.component_quality.spalling.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Corrosion :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.corrosion.response }}</li>
+                    <li>{{ House.component_quality.corrosion.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Structural Defect :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.structural_defect.response }}</li>
+                    <li>{{ House.component_quality.structural_defect.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Distress :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.distress.response }}</li>
+                    <li>{{ House.component_quality.distress.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deformation :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.deformation.response }}</li>
+                    <li>{{ House.component_quality.deformation.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deterioration :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.component_quality.deterioration.response }}</li>
+                    <li>{{ House.component_quality.deterioration.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Physical appearance :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Texture :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>{{ House.general_being.deformation.response }}</li>
-                  <li>{{ House.general_being.deformation.remark }}</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Strength :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>{{ House.general_being.defects.response }}</li>
-                  <li>{{ House.general_being.defects.remark }}</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Crack :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>{{ House.general_being.cracks.response }}</li>
-                  <li>{{ House.general_being.cracks.remark }}</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Dimension :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Deflection :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Spalling :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Corrosion :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Structural Defect :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Distress :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Deformation :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Deterioration :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row row-underline">
+        <div class="col-md-6"><span class="deal-text">Design Level </span></div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6"><span class="deal-text">Design Level </span></div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Dimension of Elements :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.dimension.response }}</li>
+                    <li>{{ House.design_lvl.dimension.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Spanning/ Heights :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.spanning.response }}</li>
+                    <li>{{ House.design_lvl.spanning.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Arrangement(Structural)/ Configuration :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.configuration.response }}</li>
+                    <li>{{ House.design_lvl.configuration.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Redundant Element :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.redundant_element.response }}</li>
+                    <li>{{ House.design_lvl.redundant_element.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Loading :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.loading.response }}</li>
+                    <li>{{ House.design_lvl.loading.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Structural Defect :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.structural_defect.response }}</li>
+                    <li>{{ House.design_lvl.structural_defect.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deformation :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.design_lvl.deformation.response }}</li>
+                    <li>{{ House.design_lvl.deformation.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Dimension of Elements :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Spanning/ Heights :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Arrangement(Structural)/ Configuration :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Redundant Element :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Loading :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Structural Defect :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Deformation :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">Work Experience Level </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6">
-        <span class="deal-text">Work Experience Level </span>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Dimension :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.dimension.response }}</li>
+                    <li>{{ House.work_xp_lvl.dimension.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Misalignment/ Eccentricity :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.misalignment.response }}</li>
+                    <li>{{ House.work_xp_lvl.misalignment.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deflection/Cracking :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.deflection.response }}</li>
+                    <li>{{ House.work_xp_lvl.deflection.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Excessive Waviness :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.excess_waviness.response }}</li>
+                    <li>{{ House.work_xp_lvl.excess_waviness.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Corossion :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.corossion.response }}</li>
+                    <li>{{ House.work_xp_lvl.corossion.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Insufficient bar spacing :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.bar_spacing.response }}</li>
+                    <li>{{ House.work_xp_lvl.bar_spacing.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Deficient/ excessive cover :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.deficient_cover.response }}</li>
+                    <li>{{ House.work_xp_lvl.deficient_cover.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Reinforcement out of specification :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.reinforcement_spec.response }}</li>
+                    <li>{{ House.work_xp_lvl.reinforcement_spec.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Sequential construction :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.work_xp_lvl.seq_construction.response }}</li>
+                    <li>{{ House.work_xp_lvl.seq_construction.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">Indoor Environment </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Dimension :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Misalignment/ Eccentricity :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Deflection/Cracking :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Excessive Waviness :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Corossion :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Insufficient bar spacing :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Deficient/ excessive cover :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Reinforcement out of specification :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Sequential construction :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Moisture :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.moisture.response }}</li>
+                    <li>{{ House.indoor_env.moisture.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Humidity :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.humidity.response }}</li>
+                    <li>{{ House.indoor_env.humidity.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Vibration :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.vibration.response }}</li>
+                    <li>{{ House.indoor_env.vibration.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Excessive Heat :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.excess_heat.response }}</li>
+                    <li>{{ House.indoor_env.excess_heat.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Ventilation :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.ventilation.response }}</li>
+                    <li>{{ House.indoor_env.ventilation.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Lighting :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.indoor_env.lighting.response }}</li>
+                    <li>{{ House.indoor_env.lighting.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6">
-        <span class="deal-text">Indoor Environment </span>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">Outdoor Environment </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Drainage Issue :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.drainage_issue.response }}</li>
+                    <li>{{ House.outdoor_env.drainage_issue.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Flood Issue :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.flood_issue.response }}</li>
+                    <li>{{ House.outdoor_env.flood_issue.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Fire/ Heat :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.heat.response }}</li>
+                    <li>{{ House.outdoor_env.heat.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Traffic Issue :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.traffic_issue.response }}</li>
+                    <li>{{ House.outdoor_env.traffic_issue.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Driving Rain :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.drv_rain.response }}</li>
+                    <li>{{ House.outdoor_env.drv_rain.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Dirty/Unkept :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.unkempt.response }}</li>
+                    <li>{{ House.outdoor_env.unkempt.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Aggressive Chemicals/polution :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.pollution.response }}</li>
+                    <li>{{ House.outdoor_env.pollution.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Extreme Temperature :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.extreme_temp.response }}</li>
+                    <li>{{ House.outdoor_env.extreme_temp.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Threat from other Buildings :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.outdoor_env.building_threat.response }}</li>
+                    <li>{{ House.outdoor_env.building_threat.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Moisture :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Humidity :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Vibration :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Excessive Heat :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Ventilation :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Lighting :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">In-Use Conditions </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6">
-        <span class="deal-text">Outdoor Environment </span>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Addition/Alteration work :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.addition.response }}</li>
+                    <li>{{ House.in_use_cond.addition.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Overloading :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.overloading.response }}</li>
+                    <li>{{ House.in_use_cond.overloading.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Environment not properly kept :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.not_kept.response }}</li>
+                    <li>{{ House.in_use_cond.not_kept.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Vibration :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.vibration.response }}</li>
+                    <li>{{ House.in_use_cond.vibration.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Vandalism :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.vandalism.response }}</li>
+                    <li>{{ House.in_use_cond.vandalism.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Building used for residential purpose only :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.in_use_cond.residential_only.response }}</li>
+                    <li>{{ House.in_use_cond.residential_only.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+      <div class="row row-underline">
+        <div class="col-md-6"><span class="deal-text">Maintenance </span></div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Drainage Issue :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Flood Issue :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Fire/ Heat :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Traffic Issue :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Driving Rain :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Dirty/Unkept :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Aggressive Chemicals/polution :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Extreme Temperature :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Threat from other Buildings :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Well maintained Internal Environment :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.int_env.response }}</li>
+                    <li>{{ House.maintenance.int_env.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Well maintained External Environment :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.ext_env.response }}</li>
+                    <li>{{ House.maintenance.ext_env.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Building/ Structural Elements well maintained :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.struct_elements.response }}</li>
+                    <li>{{ House.maintenance.struct_elements.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Maintenance issues :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.maintenance_issue.response }}</li>
+                    <li>{{ House.maintenance.maintenance_issue.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Maintained when problem/ damage occurs :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.damage_maintenance.response }}</li>
+                    <li>{{ House.maintenance.damage_maintenance.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Maintained at care takers disgression :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.care_takers.response }}</li>
+                    <li>{{ House.maintenance.care_takers.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Maintenance after inspection with planned frequency :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>{{ House.maintenance.planned_frequency.response }}</li>
+                    <li>{{ House.maintenance.planned_frequency.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6">
-        <span class="deal-text">In-Use Conditions </span>
-      </div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Addition/Alteration work :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Overloading :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Environment not properly kept :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Vibration :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Building used for residential purpose only :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="row row-underline">
-      <div class="col-md-6"><span class="deal-text">Maintenance </span></div>
-      <div class="col-md-6">
-        <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="col-md-12">
-          <tbody>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Well maintained Internal Environment :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>
-                    2 in 1 Laptop, Power Adaptor, Active Stylus Pen, User Guide,
-                    Warranty Documents
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Well maintained External Environment :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>14-dh0107TU</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Building/ Structural Elements well maintained :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>7AL87PA</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification">Maintenance issues :</span>
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Maintained when problem/ damage occurs :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Maintained at care takers disgression :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-            <tr class="row mt-10">
-              <td class="col-md-4">
-                <span class="p_specification"
-                  >Maintenance after inspection with planned frequency :</span
-                >
-              </td>
-              <td class="col-md-8">
-                <ul>
-                  <li>Black</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    </section>
   </div>
   <!-- end container -->
 </template>
@@ -1085,14 +1130,14 @@ export default {
       // convert unixtime seconds to milliseconds and create JS date
       var date = new Date(
         this.$store.state.auth.house.date.$date
-      ).toDateString();
+      ).toLocaleDateString();
       return date;
     },
     newDateString: function () {
       // convert unixtime seconds to milliseconds and create JS date
       var date = new Date(
         this.$store.state.auth.house.last_repair_date.$date
-      ).toDateString();
+      ).toLocaleDateString();
       return date;
     },
   },

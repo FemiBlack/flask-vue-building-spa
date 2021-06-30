@@ -1,16 +1,23 @@
 import Vue from 'vue';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import axios from 'axios';
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
 import VueFormWizard from 'vue-form-wizard';
+// import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 import titleMixin from './mixins/titleMixin'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css';
-import router from './router';
+import '@/assets/themify-icons.css';
+
+import router from './router'
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/js/bootstrap.min.js';
 import App from './App.vue';
 
+Vue.use(VueSweetalert2);
+// Vue.use(Buefy)
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
 Vue.mixin(titleMixin)

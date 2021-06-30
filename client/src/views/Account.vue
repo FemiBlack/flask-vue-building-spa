@@ -2,27 +2,34 @@
   <b-container>
     <b-row>
       <b-col>
-        <alert :message="message" v-if="showMessage"></alert>
         <div class="posts" v-if="Houses[0]">
           <p>You currently have ({{ Houses.length }}) house(s) registered</p>
           <article
             class="media content-section"
-            v-for="(house, index) in Houses"
+            v-for="(house, index) in unitHouses"
             :key="index"
           >
             <div class="media-body">
               <div class="article-metadata">
                 <small
                   :class="{
-                    complete: house.is_completed==='complete',
-                    incomplete: house.is_completed!=='complete',
+                    complete: house.is_completed === 'completed',
+                    incomplete: house.is_completed !== 'completed',
                   }"
-                  >Status: {{ house.is_completed==='complete'?'Complete':'Incomplete' }}</small
+                  >Status:
+                  {{
+                    house.is_completed === "completed"
+                      ? "Complete"
+                      : "Incomplete"
+                  }}</small
                 ><br />
-                <small class="text-muted">Date Created: 25/01/2332</small><br/>
+                <small class="text-muted"
+                  >Date Created:
+                  {{ localDateString(house.date_created.$date) }}</small
+                ><br />
                 <b-button-group>
                   <b-button
-                    v-if="house.is_completed!=='complete'"
+                    v-if="house.is_completed !== 'completed'"
                     variant="warning"
                     :to="`/registerbuilding/${house.is_completed}/${house._id.$oid}`"
                     size="sm"
@@ -37,7 +44,6 @@
                   <b-button
                     variant="danger"
                     size="sm"
-                    v-b-modal.delete-modal
                     @click="readyDelete(house)"
                     >Delete</b-button
                   >
@@ -47,35 +53,6 @@
               <!-- <p class="article-content">content</p> -->
             </div>
           </article>
-          <b-modal
-            hide-backdrop
-            content-class="shadow"
-            ref="deleteHouseModal"
-            id="delete-modal"
-          >
-            <template #modal-header>
-              <!-- Emulate built in modal header close button action -->
-              <h5>Warning</h5>
-            </template>
-
-            <template #default>
-              <b-icon
-                icon="exclamation-triangle-fill"
-                scale="2"
-                variant="warning"
-              ></b-icon>
-              <p>Caution⚠, This action is irreversible</p>
-            </template>
-            <template #modal-footer="{ cancel }">
-              <!-- Emulate built in modal footer ok and cancel button actions -->
-              <b-button size="sm" variant="danger" @click="deleteHome()">
-                I understand
-              </b-button>
-              <b-button size="sm" variant="dark" @click="cancel()">
-                Take me back!
-              </b-button>
-            </template>
-          </b-modal>
         </div>
         <div v-else>No registered houses found...😢😕</div>
       </b-col>
@@ -83,50 +60,150 @@
         <div v-if="User">
           <b-alert show>Hi, {{ User }}</b-alert>
         </div>
+        <section class="info-tiles">
+          <div class="tile is-ancestor has-text-centered">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">{{ Houses.length }}</p>
+                <p class="subtitle">Registered</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">{{ computeCompleted }}</p>
+                <p class="subtitle">Successful</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">{{ Houses.length - computeCompleted }}</p>
+                <p class="subtitle">Incomplete</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <div class="columns">
+          <div class="column">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">Inventory Search</p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="control has-icons-left has-icons-right">
+                    <input
+                      class="input is-large"
+                      type="text"
+                      v-model="search"
+                      placeholder=""
+                    />
+                    <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                    <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <b-row>
+          <b-col>
+            <jw-pagination
+              :items="filteredList"
+              @changePage="onChangePage"
+              :pageSize="3"
+            ></jw-pagination>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
-import { BIcon } from "bootstrap-vue";
 import { mapGetters, mapActions } from "vuex";
-import Alert from "../components/Alert.vue";
+import JWPagination from "jw-vue-pagination";
 
 export default {
   title: "SLDB - Account Page",
   name: "Account",
   data() {
     return {
-      message: "",
-      showMessage: false,
       house: [],
       item: "",
+      unitHouses: [],
+      search: "",
     };
   },
   components: {
-    alert: Alert,
-    BIcon,
+    "jw-pagination": JWPagination,
   },
   computed: {
     ...mapGetters({ Houses: "StateUserHouses", User: "StateUser" }),
+    filteredList() {
+      return this.Houses.filter((post) => {
+        return post.building_no
+          .toLowerCase()
+          .includes(this.search.toLowerCase());
+      });
+    },
+    computeCompleted: function () {
+      const completed = this.Houses.filter(
+        (element) => element.is_completed === "completed"
+      )
+      return completed.length;
+    },
   },
   methods: {
-    ...mapActions(["GetUserHouses", "DeleteHouse"]),
     async readyDelete(item) {
       this.item = item;
+      this.$swal({
+        title: "Are you sure?",
+        text: "You can't revert your action",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes Delete it!",
+        cancelButtonText: "No, Keep it!",
+        showCloseButton: true,
+        showLoaderOnConfirm: true,
+      }).then((result) => {
+        if (result.value) {
+          this.deleteHome();
+          this.$swal(
+            "Deleted",
+            "You successfully deleted this file",
+            "success"
+          );
+        } else {
+          this.item = "";
+          this.$swal("Cancelled", "Your file is still intact", "info");
+        }
+      });
     },
+    onChangePage(unitHouses) {
+      // update page of items
+      this.unitHouses = unitHouses;
+    },
+    localDateString: function (value) {
+      // convert unixtime seconds to milliseconds and create JS date
+      var date = new Date(value).toLocaleDateString();
+      return date;
+    },
+    ...mapActions(["GetUserHouses", "DeleteHouse"]),
     async deleteHome() {
       try {
-        // eslint-disable-next-line
         await this.DeleteHouse(this.item._id.$oid);
-        this.message = "Record removed!";
-        this.showMessage = true;
       } catch (error) {
-        // eslint-disable-next-line
         throw "Error deleting item";
       }
-      this.$refs.deleteHouseModal.hide();
       this.GetUserHouses();
     },
   },
@@ -180,5 +257,31 @@ a.article-title:hover {
 .incomplete {
   color: red;
 }
-.rounded-circle{border-radius:50%!important}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.card {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  margin-bottom: 2rem;
+}
+.card-header-title {
+  color: #8f99a3;
+  font-weight: 400;
+}
+.card .content {
+  font-size: 14px;
+}
+.card-footer-item {
+  font-size: 14px;
+  font-weight: 700;
+  color: #8f99a3;
+}
+.card-table .table {
+  margin-bottom: 0;
+}
+.events-card .card-table {
+  max-height: 250px;
+  overflow-y: scroll;
+}
 </style>

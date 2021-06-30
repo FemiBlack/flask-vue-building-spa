@@ -37,8 +37,6 @@ class HouseApi(Resource):
     @jwt_required()
     def put(self, id):
         try:
-            # user_id = get_jwt_identity()
-            # house = Building.objects.get(id=id, added_by=user_id)
             body = request.get_json()
             Building.objects.get(id=id).update(**body)
             return '',200

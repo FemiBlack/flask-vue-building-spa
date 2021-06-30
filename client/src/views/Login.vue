@@ -11,24 +11,21 @@
     <b-form @submit="handleSubmit" class="w-100">
       <b-form-group
         id="form-uname-group"
-        label="Email:"
+        label="Username:"
         label-for="form-uname-input"
       >
         <b-form-input
           id="form-uname-input"
           type="text"
-          :class="{ 'is-invalid': submitted && $v.loginForm.email.$error }"
-          v-model="loginForm.email"
-          placeholder="Enter Email"
+          :class="{ 'is-invalid': submitted && $v.loginForm.username.$error }"
+          v-model="loginForm.username"
+          placeholder="Enter Username"
         >
         </b-form-input>
         <span
-          v-if="submitted && !$v.loginForm.email.required"
+          v-if="submitted && !$v.loginForm.username.required"
           style="color: red"
-          >Email is required</span
-        >
-        <span v-if="submitted && !$v.loginForm.email.email" style="color: red"
-          >Valid Email is required</span
+          >Username is required</span
         >
       </b-form-group>
       <b-form-group
@@ -64,14 +61,14 @@
 <script>
 // import { TweenMax, Power4 } from 'gsap';
 import { mapActions } from "vuex";
-import { required, email } from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 
 export default {
   name: "Login",
   data() {
     return {
       loginForm: {
-        email: "",
+        username: "",
         password: "",
       },
       submitted: false,
@@ -81,7 +78,7 @@ export default {
   },
   validations: {
     loginForm: {
-      email: { required, email },
+      username: { required },
       password: { required },
     },
   },
@@ -89,7 +86,7 @@ export default {
     ...mapActions(["LogIn"]),
     async submit() {
       const User = {
-        email: this.loginForm.email,
+        username: this.loginForm.username,
         password: this.loginForm.password,
       };
       try {

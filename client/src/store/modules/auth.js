@@ -17,7 +17,7 @@ const actions = {
   async Register({ dispatch }, form) {
     await axios.post('/api/auth/signup', form);
     const UserForm = {
-      email: form.email,
+      username: form.username,
       password: form.password,
     };
     await dispatch('LogIn', UserForm);
@@ -25,7 +25,7 @@ const actions = {
   async LogIn({ commit }, User) {
     const response = await axios.post('/api/auth/login', User);
     localStorage.setItem('token', response.data.token);
-    await commit('setUser', User.email);
+    await commit('setUser', User.username);
   },
   async CreateHouse({ dispatch }, house) {
     await axios.post('/api/building', house, {

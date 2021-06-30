@@ -1,4 +1,5 @@
 from .db import db
+from datetime import datetime
 from flask_bcrypt import generate_password_hash,check_password_hash
 
 
@@ -137,6 +138,7 @@ class SiteDescription(db.EmbeddedDocument):
     floor_finish = db.StringField()
 
 class Building(db.Document):
+    date_created = db.DateTimeField(default=datetime.now())
     building_no = db.StringField(required=True, unique=True)
     address = db.StringField(required=True)
     date = db.DateTimeField(required=True)

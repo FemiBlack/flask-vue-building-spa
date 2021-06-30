@@ -21,17 +21,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
-* {
-  font-family: "Roboto";
-}
+// * {
+//   font-family: "Roboto";
+// }
 footer {
   background-color: #f2f2f2;
   padding: 25px;
-}
-.invalid-feedback {
-  color:red;
 }
 .slide-enter-active,
 .slide-leave-active {
