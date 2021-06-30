@@ -21,11 +21,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
-// * {
-//   font-family: "Roboto";
-// }
+/* * {
+ font-family: "Roboto";
+} */
 footer {
   background-color: #f2f2f2;
   padding: 25px;
