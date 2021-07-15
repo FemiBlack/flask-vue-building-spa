@@ -16,29 +16,17 @@
       <span class="help-block"
     v-if="$v.address.$error && !$v.address.required">Address is required</span>
     </div>
-    <div class="form-group" :class="{ 'is-invalid': $v.date.$error }">
+    <div class="form-group">
       <label for="build_code">Date/Type of Construction (If Known)</label>
-      <input type="date" class="form-control" v-model.trim="date"
-      @input="$v.date.$touch()">
-      <span class="help-block"
-    v-if="$v.date.$error && !$v.date.required">Date of Construction is required</span>
+      <input type="date" class="form-control" v-model.trim="date">
     </div>
-    <div class="form-group" :class="{ 'is-invalid': $v.building_age.$error }">
+    <div class="form-group">
       <label for="build_code">Age of Building</label>
-      <input type="text" class="form-control" v-model.trim="building_age"
-      @input="$v.building_age.$touch()">
-      <span class="help-block"
-    v-if="$v.building_age.$error && !$v.building_age.required">Age is required</span>
-      <span class="help-block"
-    v-if="$v.building_age.$error && !$v.building_age.numeric">A valid number is required!</span>
+      <input type="text" class="form-control" v-model.trim="building_age">
     </div>
-    <div class="form-group" :class="{ 'is-invalid': $v.last_repair_date.$error }">
+    <div class="form-group">
       <label for="build_code">Date of last Repair/Intervention</label>
-      <input type="date" class="form-control" v-model.trim="last_repair_date"
-      @input="$v.last_repair_date.$touch()">
-      <span class="help-block"
-    v-if="$v.last_repair_date.$error && !$v.last_repair_date.required">
-    Date of Last Repair is required</span>
+      <input type="date" class="form-control" v-model.trim="last_repair_date">
     </div>
     <div class="form-group" :class="{ 'is-invalid': $v.nature_of_repair.$error }">
       <label for="build_code">Nature of Repair/Intervention</label>
@@ -109,9 +97,6 @@ export default {
   validations: {
     building_no: { required },
     address: { required },
-    date: { required },
-    building_age: { required, numeric },
-    last_repair_date: { required },
     nature_of_repair: { required },
     frequency_of_repair: { required },
     geometry: { required },
@@ -119,9 +104,7 @@ export default {
     compliance: { required },
     deviation: { required },
     form: [
-      'building_no', 'address',
-      'date', 'building_age',
-      'last_repair_date', 'nature_of_repair',
+      'building_no', 'address','nature_of_repair',
       'frequency_of_repair', 'geometry',
       'characteristics', 'compliance',
       'deviation',
