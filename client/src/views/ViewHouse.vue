@@ -1107,7 +1107,7 @@
       </div>
     </section>
     <section v-if="House.is_completed==='completed'">
-      <h3>FINAL ...</h3>
+      <h3>NDTS & Site Description</h3>
       <div class="row row-underline">
         <div class="col-md-6">
           <span class="deal-text">Non-Destructive Test Results </span>
@@ -1122,7 +1122,7 @@
             <tbody>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Physical appearance :</span>
+                  <span class="p_specification">Grid :</span>
                 </td>
                 <td class="col-md-8">
                   {{ House.nd_test_res.grid }}
@@ -1130,7 +1130,7 @@
               </tr>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Texture :</span>
+                  <span class="p_specification">Ultrasonic :</span>
                 </td>
                 <td class="col-md-8">
                   <ul>
@@ -1142,7 +1142,7 @@
               </tr>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Strength :</span>
+                  <span class="p_specification">EQ Strength :</span>
                 </td>
                 <td class="col-md-8">
                   {{ House.nd_test_res.eq_strength }}
@@ -1150,7 +1150,7 @@
               </tr>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Crack :</span>
+                  <span class="p_specification">Hammer Value :</span>
                 </td>
                 <td class="col-md-8">
                   {{ House.nd_test_res.hammer_val }}
@@ -1158,7 +1158,7 @@
               </tr>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Dimension :</span>
+                  <span class="p_specification">Average Hammer Value :</span>
                 </td>
                 <td class="col-md-8">
                   {{ House.nd_test_res.avg_hammer_val }}
@@ -1166,7 +1166,7 @@
               </tr>
               <tr class="row mt-10">
                 <td class="col-md-4">
-                  <span class="p_specification">Deflection :</span>
+                  <span class="p_specification">Average EQ Strength :</span>
                 </td>
                 <td class="col-md-8">
                   {{ House.nd_test_res.avg_eq_strength }}
