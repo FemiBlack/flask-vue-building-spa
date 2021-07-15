@@ -590,6 +590,17 @@
                   </ul>
                 </td>
               </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Detailing :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>Response: {{ House.design_lvl.detailing.response }}</li>
+                    <li>Remark: {{ House.design_lvl.detailing.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -708,6 +719,17 @@
                   <ul>
                     <li>Response: {{ House.work_xp_lvl.seq_construction.response }}</li>
                     <li>Remark: {{ House.work_xp_lvl.seq_construction.remark }}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Internal Arrangement of Structural Element :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>Response: {{ House.work_xp_lvl.internal.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.internal.remark }}</li>
                   </ul>
                 </td>
               </tr>
