@@ -143,7 +143,7 @@ class Building(db.Document):
     date_created = db.DateTimeField(default=datetime.now())
     building_no = db.StringField(required=True, unique=True)
     address = db.StringField(required=True)
-    date = db.DateTimeField(required=True)
+    date = db.DateTimeField()
     building_age = db.IntField()
     last_repair_date = db.DateTimeField()
     nature_of_repair = db.StringField()
@@ -171,7 +171,7 @@ class Building(db.Document):
 
 class User(db.Document):
     email = db.EmailField(required=True, unique=True)
-    username = db.StringField(required=True)
+    username = db.StringField(required=True, unique=True)
     password = db.StringField(required=True, min_length=6)
     houses = db.ListField(db.ReferenceField('Building', reverse_delete_rule=db.PULL))
 

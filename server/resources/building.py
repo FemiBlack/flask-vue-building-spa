@@ -6,8 +6,8 @@ import json
 
 from mongoengine.errors import FieldDoesNotExist, \
     NotUniqueError, DoesNotExist, ValidationError, InvalidQueryError
-from resources.errors import SchemaValidationError, MovieAlreadyExistsError, \
-    InternalServerError, UpdatingMovieError, DeletingMovieError, MovieNotExistsError
+from resources.errors import SchemaValidationError, BuildingAlreadyExistsError, \
+    InternalServerError, UpdatingBuildingError, DeletingBuildingError, BuildingNotExistsError
 
 class HousingApi(Resource):
     def get(self):
@@ -29,7 +29,7 @@ class HousingApi(Resource):
         except (FieldDoesNotExist, ValidationError):
             raise SchemaValidationError
         except NotUniqueError:
-            raise MovieAlreadyExistsError
+            raise BuildingAlreadyExistsError
         except Exception as e:
             raise InternalServerError
 
@@ -43,7 +43,7 @@ class HouseApi(Resource):
         except InvalidQueryError:
             raise SchemaValidationError
         except DoesNotExist:
-            raise UpdatingMovieError
+            raise UpdatingBuildingError
         except Exception:
             raise InternalServerError
 
@@ -55,7 +55,7 @@ class HouseApi(Resource):
             house.delete()
             return '', 200
         except DoesNotExist:
-            raise DeletingMovieError
+            raise DeletingBuildingError
         except Exception:
             raise InternalServerError
 
@@ -64,7 +64,7 @@ class HouseApi(Resource):
             houses = Building.objects.get(id=id).to_json()
             return Response(houses, mimetype="application/json", status=200)
         except DoesNotExist:
-            raise MovieNotExistsError
+            raise BuildingNotExistsError
         except Exception:
             raise InternalServerError
 

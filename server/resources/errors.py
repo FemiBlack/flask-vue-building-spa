@@ -4,19 +4,22 @@ class InternalServerError(Exception):
 class SchemaValidationError(Exception):
     pass
 
-class MovieAlreadyExistsError(Exception):
+class BuildingAlreadyExistsError(Exception):
     pass
 
-class UpdatingMovieError(Exception):
+class UpdatingBuildingError(Exception):
     pass
 
-class DeletingMovieError(Exception):
+class DeletingBuildingError(Exception):
     pass
 
-class MovieNotExistsError(Exception):
+class BuildingNotExistsError(Exception):
     pass
 
 class EmailAlreadyExistsError(Exception):
+    pass
+
+class UsernameAlreadyExistsError(Exception):
     pass
 
 class UnauthorizedError(Exception):
@@ -31,25 +34,28 @@ errors = {
         "message": "Request is missing required fields",
         "status": 400
     },
-    "MovieAlreadyExistsError": {
-        "message": "Movie with given name already exists",
+    "BuildingAlreadyExistsError": {
+        "message": "Building with given name already exists",
         "status": 400
     },
-    "UpdatingMovieError": {
-        "message": "Updating movie added by another is forbidden",
+    "UpdatingBuildingError": {
+        "message": "Updating Building added by another is forbidden",
         "status": 403
     },
-    "DeletingMovieError": {
-        "message": "Deleting movie added by another is forbidden",
+    "DeletingBuildingError": {
+        "message": "Deleting Building added by another is forbidden",
         "status": 403
     },
-    "MovieNotExistsError": {
-        "message": "Movie with given id doesn't exist",
+    "BuildingNotExistsError": {
+        "message": "Building with given id doesn't exist",
         "status": 400
     },
-
     "EmailAlreadyExistsError": {
         "message": "User with given email already exists",
+        "status": 500
+    },
+    "UsernameAlreadyExistsError": {
+        "message": "User with given username already exists",
         "status": 500
     },
     "UnauthorizedError": {
