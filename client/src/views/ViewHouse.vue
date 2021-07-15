@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
-            <h1>Response: {{ House.building_no }}</h1>
+            <h1>{{ House.building_no }}</h1>
           </div>
         </div>
         <!-- end row-->
@@ -41,14 +41,14 @@
               <span class="badge badge-primary">Frequency of Repair</span>
               <span class="monospaced"> {{ House.frequency_of_repair }}</span
               ><br />
-              <!-- <span class="badge badge-primary">Geometry</span>
-            <span class="monospaced"> {{House.geometry}}</span><br/>
-            <span class="badge badge-primary">Characteristics</span>
-            <span class="monospaced"> {{House.characteristics}}</span><br/>
-            <span class="badge badge-primary">Compliance</span>
-            <span class="monospaced"> {{House.compliance}}</span><br/>
-            <span class="badge badge-primary">Deviation</span>
-            <span class="monospaced"> {{House.deviation}}</span> -->
+              <span class="badge badge-primary">Geometry</span>
+              <span class="monospaced"> {{House.geometry}}</span><br/>
+              <span class="badge badge-primary">Characteristics</span>
+              <span class="monospaced"> {{House.characteristics}}</span><br/>
+              <span class="badge badge-primary">Compliance</span>
+              <span class="monospaced mr-2"> {{House.compliance}}</span>
+              <span class="badge badge-info">Deviation</span>
+              <span class="monospaced"> {{House.deviation}}</span>
             </p>
           </div>
         </div>
