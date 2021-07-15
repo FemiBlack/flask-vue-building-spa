@@ -103,7 +103,7 @@
           </td>
         </tr>
         <tr>
-          <td>Deflection/excess_wavinessing</td>
+          <td>Deflection/Cracking</td>
           <td>
             <div
               class="form-group"
@@ -431,6 +431,53 @@
             </div>
           </td>
         </tr>
+        <tr>
+          <td>Internal Arrangement of Structural Element</td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{
+                'has-error': $v.internal.seq_construction.response.$error,
+              }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="internal.seq_construction.response"
+                @input="$v.internal.seq_construction.response.$touch()"
+              />
+              <span
+                v-if="
+                  $v.internal.seq_construction.response.$error &&
+                  !$v.internal.seq_construction.response.required
+                "
+                >Response is required</span
+              >
+            </div>
+          </td>
+          <td>
+            <div
+              class="form-group"
+              v-bind:class="{
+                'has-error': $v.internal.seq_construction.remark.$error,
+              }"
+            >
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="internal.seq_construction.remark"
+                @input="$v.internal.seq_construction.remark.$touch()"
+              />
+              <span
+                v-if="
+                  $v.internal.seq_construction.remark.$error &&
+                  !$v.internal.seq_construction.remark.required
+                "
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </fieldset>
@@ -452,6 +499,7 @@ export default {
         deficient_cover: { response: "", remark: "" },
         reinforcement_spec: { response: "", remark: "" },
         seq_construction: { response: "", remark: "" },
+        internal: { response: "", remark: "" },
       },
     };
   },
@@ -466,6 +514,7 @@ export default {
       deficient_cover: { response: { required }, remark: { required } },
       reinforcement_spec: { response: { required }, remark: { required } },
       seq_construction: { response: { required }, remark: { required } },
+      internal: { response: { required }, remark: { required } },
       form: [
         "work_xp_lvl.dimension.response",
         "work_xp_lvl.dimension.remark",
@@ -485,6 +534,8 @@ export default {
         "work_xp_lvl.reinforcement_spec.remark",
         "work_xp_lvl.seq_construction.response",
         "work_xp_lvl.seq_construction.remark",
+        "work_xp_lvl.internal.response",
+        "work_xp_lvl.internal.remark",
       ],
     },
   },

@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
-            <h1>{{ House.building_no }}</h1>
+            <h1>Response: {{ House.building_no }}</h1>
           </div>
         </div>
         <!-- end row-->
@@ -75,8 +75,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.drv_rain.response }}</li>
-                  <li>{{ House.external_env.drv_rain.remark }}</li>
+                  <li>Response: {{ House.external_env.drv_rain.response }}</li>
+                  <li>Remark: {{ House.external_env.drv_rain.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -86,8 +86,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.drainage_issue.response }}</li>
-                  <li>{{ House.external_env.drainage_issue.remark }}</li>
+                  <li>Response: {{ House.external_env.drainage_issue.response }}</li>
+                  <li>Remark: {{ House.external_env.drainage_issue.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -97,8 +97,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.water_log.response }}</li>
-                  <li>{{ House.external_env.water_log.remark }}</li>
+                  <li>Response: {{ House.external_env.water_log.response }}</li>
+                  <li>Remark: {{ House.external_env.water_log.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -108,8 +108,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.unkempt.response }}</li>
-                  <li>{{ House.external_env.unkempt.remark }}</li>
+                  <li>Response: {{ House.external_env.unkempt.response }}</li>
+                  <li>Remark: {{ House.external_env.unkempt.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -121,8 +121,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.pollution.response }}</li>
-                  <li>{{ House.external_env.pollution.remark }}</li>
+                  <li>Response: {{ House.external_env.pollution.response }}</li>
+                  <li>Remark: {{ House.external_env.pollution.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -132,8 +132,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.topography.response }}</li>
-                  <li>{{ House.external_env.topography.remark }}</li>
+                  <li>Response: {{ House.external_env.topography.response }}</li>
+                  <li>Remark: {{ House.external_env.topography.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -143,8 +143,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.radiation.response }}</li>
-                  <li>{{ House.external_env.radiation.remark }}</li>
+                  <li>Response: {{ House.external_env.radiation.response }}</li>
+                  <li>Remark: {{ House.external_env.radiation.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -154,8 +154,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.extreme_temp.response }}</li>
-                  <li>{{ House.external_env.extreme_temp.remark }}</li>
+                  <li>Response: {{ House.external_env.extreme_temp.response }}</li>
+                  <li>Remark: {{ House.external_env.extreme_temp.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -165,8 +165,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.flood.response }}</li>
-                  <li>{{ House.external_env.flood.remark }}</li>
+                  <li>Response: {{ House.external_env.flood.response }}</li>
+                  <li>Remark: {{ House.external_env.flood.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -176,8 +176,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.fire_source.response }}</li>
-                  <li>{{ House.external_env.fire_source.remark }}</li>
+                  <li>Response: {{ House.external_env.fire_source.response }}</li>
+                  <li>Remark: {{ House.external_env.fire_source.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -187,8 +187,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.traffic_issue.response }}</li>
-                  <li>{{ House.external_env.traffic_issue.remark }}</li>
+                  <li>Response: {{ House.external_env.traffic_issue.response }}</li>
+                  <li>Remark: {{ House.external_env.traffic_issue.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -200,8 +200,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.building_threat.response }}</li>
-                  <li>{{ House.external_env.building_threat.remark }}</li>
+                  <li>Response: {{ House.external_env.building_threat.response }}</li>
+                  <li>Remark: {{ House.external_env.building_threat.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -211,8 +211,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.wind.response }}</li>
-                  <li>{{ House.external_env.wind.remark }}</li>
+                  <li>Response: {{ House.external_env.wind.response }}</li>
+                  <li>Remark: {{ House.external_env.wind.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -222,8 +222,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.external_env.moisture.response }}</li>
-                  <li>{{ House.external_env.moisture.remark }}</li>
+                  <li>Response: {{ House.external_env.moisture.response }}</li>
+                  <li>Remark: {{ House.external_env.moisture.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -249,8 +249,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.internal_cond.moisture.response }}</li>
-                  <li>{{ House.internal_cond.moisture.remark }}</li>
+                  <li>Response: {{ House.internal_cond.moisture.response }}</li>
+                  <li>Remark: {{ House.internal_cond.moisture.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -260,8 +260,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.internal_cond.excess_heat.response }}</li>
-                  <li>{{ House.internal_cond.excess_heat.remark }}</li>
+                  <li>Response: {{ House.internal_cond.excess_heat.response }}</li>
+                  <li>Remark: {{ House.internal_cond.excess_heat.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -271,8 +271,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.internal_cond.ventilation.response }}</li>
-                  <li>{{ House.internal_cond.ventilation.remark }}</li>
+                  <li>Response: {{ House.internal_cond.ventilation.response }}</li>
+                  <li>Remark: {{ House.internal_cond.ventilation.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -282,8 +282,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.internal_cond.dry_air.response }}</li>
-                  <li>{{ House.internal_cond.dry_air.remark }}</li>
+                  <li>Response: {{ House.internal_cond.dry_air.response }}</li>
+                  <li>Remark: {{ House.internal_cond.dry_air.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -309,8 +309,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.general_being.foundation_sett.response }}</li>
-                  <li>{{ House.general_being.foundation_sett.remark }}</li>
+                  <li>Response: {{ House.general_being.foundation_sett.response }}</li>
+                  <li>Remark: {{ House.general_being.foundation_sett.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -320,8 +320,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.general_being.deformation.response }}</li>
-                  <li>{{ House.general_being.deformation.remark }}</li>
+                  <li>Response: {{ House.general_being.deformation.response }}</li>
+                  <li>Remark: {{ House.general_being.deformation.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -331,8 +331,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.general_being.defects.response }}</li>
-                  <li>{{ House.general_being.defects.remark }}</li>
+                  <li>Response: {{ House.general_being.defects.response }}</li>
+                  <li>Remark: {{ House.general_being.defects.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -342,8 +342,8 @@
               </td>
               <td class="col-md-8">
                 <ul>
-                  <li>{{ House.general_being.cracks.response }}</li>
-                  <li>{{ House.general_being.cracks.remark }}</li>
+                  <li>Response: {{ House.general_being.cracks.response }}</li>
+                  <li>Remark: {{ House.general_being.cracks.remark }}</li>
                 </ul>
               </td>
             </tr>
@@ -352,7 +352,7 @@
       </div>
     </div>
     <section v-if="House.is_completed==='third' || House.is_completed==='completed'">
-      <h3>VISUAL</h3>
+      <h3>VISUAL INSPECTION</h3>
       <div class="row row-underline">
         <div class="col-md-6">
           <span class="deal-text">Quality of Component </span>
@@ -371,9 +371,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>
-                      <li>{{ House.component_quality.physical_app.response }}</li>
-                    <li>{{ House.component_quality.physical_app.remark }}</li>
+                    <li>Response: {{ House.component_quality.physical_app.response }}</li>
+                    <li>Remark: {{ House.component_quality.physical_app.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -383,8 +382,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.texture.response }}</li>
-                    <li>{{ House.component_quality.texture.remark }}</li>
+                    <li>Response: {{ House.component_quality.texture.response }}</li>
+                    <li>Remark: {{ House.component_quality.texture.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -394,8 +393,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.strength.response }}</li>
-                    <li>{{ House.component_quality.strength.remark }}</li>
+                    <li>Response: {{ House.component_quality.strength.response }}</li>
+                    <li>Remark: {{ House.component_quality.strength.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -405,8 +404,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.crack.response }}</li>
-                    <li>{{ House.component_quality.crack.remark }}</li>
+                    <li>Response: {{ House.component_quality.crack.response }}</li>
+                    <li>Remark: {{ House.component_quality.crack.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -416,8 +415,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.dimension.response }}</li>
-                    <li>{{ House.component_quality.dimension.remark }}</li>
+                    <li>Response: {{ House.component_quality.dimension.response }}</li>
+                    <li>Remark: {{ House.component_quality.dimension.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -427,8 +426,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.deflection.response }}</li>
-                    <li>{{ House.component_quality.deflection.remark }}</li>
+                    <li>Response: {{ House.component_quality.deflection.response }}</li>
+                    <li>Remark: {{ House.component_quality.deflection.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -438,8 +437,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.spalling.response }}</li>
-                    <li>{{ House.component_quality.spalling.remark }}</li>
+                    <li>Response: {{ House.component_quality.spalling.response }}</li>
+                    <li>Remark: {{ House.component_quality.spalling.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -449,8 +448,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.corrosion.response }}</li>
-                    <li>{{ House.component_quality.corrosion.remark }}</li>
+                    <li>Response: {{ House.component_quality.corrosion.response }}</li>
+                    <li>Remark: {{ House.component_quality.corrosion.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -460,8 +459,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.structural_defect.response }}</li>
-                    <li>{{ House.component_quality.structural_defect.remark }}</li>
+                    <li>Response: {{ House.component_quality.structural_defect.response }}</li>
+                    <li>Remark: {{ House.component_quality.structural_defect.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -471,8 +470,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.distress.response }}</li>
-                    <li>{{ House.component_quality.distress.remark }}</li>
+                    <li>Response: {{ House.component_quality.distress.response }}</li>
+                    <li>Remark: {{ House.component_quality.distress.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -482,8 +481,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.deformation.response }}</li>
-                    <li>{{ House.component_quality.deformation.remark }}</li>
+                    <li>Response: {{ House.component_quality.deformation.response }}</li>
+                    <li>Remark: {{ House.component_quality.deformation.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -493,8 +492,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.component_quality.deterioration.response }}</li>
-                    <li>{{ House.component_quality.deterioration.remark }}</li>
+                    <li>Response: {{ House.component_quality.deterioration.response }}</li>
+                    <li>Remark: {{ House.component_quality.deterioration.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -518,8 +517,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.dimension.response }}</li>
-                    <li>{{ House.design_lvl.dimension.remark }}</li>
+                    <li>Response: {{ House.design_lvl.dimension.response }}</li>
+                    <li>Remark: {{ House.design_lvl.dimension.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -529,8 +528,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.spanning.response }}</li>
-                    <li>{{ House.design_lvl.spanning.remark }}</li>
+                    <li>Response: {{ House.design_lvl.spanning.response }}</li>
+                    <li>Remark: {{ House.design_lvl.spanning.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -542,8 +541,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.configuration.response }}</li>
-                    <li>{{ House.design_lvl.configuration.remark }}</li>
+                    <li>Response: {{ House.design_lvl.configuration.response }}</li>
+                    <li>Remark: {{ House.design_lvl.configuration.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -553,8 +552,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.redundant_element.response }}</li>
-                    <li>{{ House.design_lvl.redundant_element.remark }}</li>
+                    <li>Response: {{ House.design_lvl.redundant_element.response }}</li>
+                    <li>Remark: {{ House.design_lvl.redundant_element.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -564,8 +563,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.loading.response }}</li>
-                    <li>{{ House.design_lvl.loading.remark }}</li>
+                    <li>Response: {{ House.design_lvl.loading.response }}</li>
+                    <li>Remark: {{ House.design_lvl.loading.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -575,8 +574,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.structural_defect.response }}</li>
-                    <li>{{ House.design_lvl.structural_defect.remark }}</li>
+                    <li>Response: {{ House.design_lvl.structural_defect.response }}</li>
+                    <li>Remark: {{ House.design_lvl.structural_defect.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -586,8 +585,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.design_lvl.deformation.response }}</li>
-                    <li>{{ House.design_lvl.deformation.remark }}</li>
+                    <li>Response: {{ House.design_lvl.deformation.response }}</li>
+                    <li>Remark: {{ House.design_lvl.deformation.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -613,8 +612,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.dimension.response }}</li>
-                    <li>{{ House.work_xp_lvl.dimension.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.dimension.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.dimension.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -626,8 +625,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.misalignment.response }}</li>
-                    <li>{{ House.work_xp_lvl.misalignment.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.misalignment.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.misalignment.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -637,8 +636,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.deflection.response }}</li>
-                    <li>{{ House.work_xp_lvl.deflection.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.deflection.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.deflection.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -648,8 +647,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.excess_waviness.response }}</li>
-                    <li>{{ House.work_xp_lvl.excess_waviness.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.excess_waviness.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.excess_waviness.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -659,8 +658,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.corossion.response }}</li>
-                    <li>{{ House.work_xp_lvl.corossion.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.corossion.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.corossion.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -670,8 +669,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.bar_spacing.response }}</li>
-                    <li>{{ House.work_xp_lvl.bar_spacing.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.bar_spacing.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.bar_spacing.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -683,8 +682,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.deficient_cover.response }}</li>
-                    <li>{{ House.work_xp_lvl.deficient_cover.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.deficient_cover.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.deficient_cover.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -696,8 +695,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.reinforcement_spec.response }}</li>
-                    <li>{{ House.work_xp_lvl.reinforcement_spec.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.reinforcement_spec.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.reinforcement_spec.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -707,8 +706,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.work_xp_lvl.seq_construction.response }}</li>
-                    <li>{{ House.work_xp_lvl.seq_construction.remark }}</li>
+                    <li>Response: {{ House.work_xp_lvl.seq_construction.response }}</li>
+                    <li>Remark: {{ House.work_xp_lvl.seq_construction.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -734,8 +733,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.moisture.response }}</li>
-                    <li>{{ House.indoor_env.moisture.remark }}</li>
+                    <li>Response: {{ House.indoor_env.moisture.response }}</li>
+                    <li>Remark: {{ House.indoor_env.moisture.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -745,8 +744,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.humidity.response }}</li>
-                    <li>{{ House.indoor_env.humidity.remark }}</li>
+                    <li>Response: {{ House.indoor_env.humidity.response }}</li>
+                    <li>Remark: {{ House.indoor_env.humidity.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -756,8 +755,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.vibration.response }}</li>
-                    <li>{{ House.indoor_env.vibration.remark }}</li>
+                    <li>Response: {{ House.indoor_env.vibration.response }}</li>
+                    <li>Remark: {{ House.indoor_env.vibration.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -767,8 +766,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.excess_heat.response }}</li>
-                    <li>{{ House.indoor_env.excess_heat.remark }}</li>
+                    <li>Response: {{ House.indoor_env.excess_heat.response }}</li>
+                    <li>Remark: {{ House.indoor_env.excess_heat.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -778,8 +777,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.ventilation.response }}</li>
-                    <li>{{ House.indoor_env.ventilation.remark }}</li>
+                    <li>Response: {{ House.indoor_env.ventilation.response }}</li>
+                    <li>Remark: {{ House.indoor_env.ventilation.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -789,8 +788,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.indoor_env.lighting.response }}</li>
-                    <li>{{ House.indoor_env.lighting.remark }}</li>
+                    <li>Response: {{ House.indoor_env.lighting.response }}</li>
+                    <li>Remark: {{ House.indoor_env.lighting.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -816,8 +815,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.drainage_issue.response }}</li>
-                    <li>{{ House.outdoor_env.drainage_issue.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.drainage_issue.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.drainage_issue.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -827,8 +826,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.flood_issue.response }}</li>
-                    <li>{{ House.outdoor_env.flood_issue.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.flood_issue.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.flood_issue.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -838,8 +837,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.heat.response }}</li>
-                    <li>{{ House.outdoor_env.heat.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.heat.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.heat.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -849,8 +848,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.traffic_issue.response }}</li>
-                    <li>{{ House.outdoor_env.traffic_issue.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.traffic_issue.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.traffic_issue.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -860,8 +859,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.drv_rain.response }}</li>
-                    <li>{{ House.outdoor_env.drv_rain.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.drv_rain.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.drv_rain.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -871,8 +870,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.unkempt.response }}</li>
-                    <li>{{ House.outdoor_env.unkempt.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.unkempt.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.unkempt.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -884,8 +883,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.pollution.response }}</li>
-                    <li>{{ House.outdoor_env.pollution.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.pollution.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.pollution.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -895,8 +894,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.extreme_temp.response }}</li>
-                    <li>{{ House.outdoor_env.extreme_temp.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.extreme_temp.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.extreme_temp.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -908,8 +907,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.outdoor_env.building_threat.response }}</li>
-                    <li>{{ House.outdoor_env.building_threat.remark }}</li>
+                    <li>Response: {{ House.outdoor_env.building_threat.response }}</li>
+                    <li>Remark: {{ House.outdoor_env.building_threat.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -935,8 +934,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.addition.response }}</li>
-                    <li>{{ House.in_use_cond.addition.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.addition.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.addition.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -946,8 +945,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.overloading.response }}</li>
-                    <li>{{ House.in_use_cond.overloading.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.overloading.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.overloading.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -959,8 +958,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.not_kept.response }}</li>
-                    <li>{{ House.in_use_cond.not_kept.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.not_kept.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.not_kept.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -970,8 +969,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.vibration.response }}</li>
-                    <li>{{ House.in_use_cond.vibration.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.vibration.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.vibration.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -981,8 +980,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.vandalism.response }}</li>
-                    <li>{{ House.in_use_cond.vandalism.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.vandalism.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.vandalism.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -994,8 +993,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.in_use_cond.residential_only.response }}</li>
-                    <li>{{ House.in_use_cond.residential_only.remark }}</li>
+                    <li>Response: {{ House.in_use_cond.residential_only.response }}</li>
+                    <li>Remark: {{ House.in_use_cond.residential_only.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1021,8 +1020,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.int_env.response }}</li>
-                    <li>{{ House.maintenance.int_env.remark }}</li>
+                    <li>Response: {{ House.maintenance.int_env.response }}</li>
+                    <li>Remark: {{ House.maintenance.int_env.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1034,8 +1033,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.ext_env.response }}</li>
-                    <li>{{ House.maintenance.ext_env.remark }}</li>
+                    <li>Response: {{ House.maintenance.ext_env.response }}</li>
+                    <li>Remark: {{ House.maintenance.ext_env.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1047,8 +1046,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.struct_elements.response }}</li>
-                    <li>{{ House.maintenance.struct_elements.remark }}</li>
+                    <li>Response: {{ House.maintenance.struct_elements.response }}</li>
+                    <li>Remark: {{ House.maintenance.struct_elements.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1058,8 +1057,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.maintenance_issue.response }}</li>
-                    <li>{{ House.maintenance.maintenance_issue.remark }}</li>
+                    <li>Response: {{ House.maintenance.maintenance_issue.response }}</li>
+                    <li>Remark: {{ House.maintenance.maintenance_issue.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1071,8 +1070,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.damage_maintenance.response }}</li>
-                    <li>{{ House.maintenance.damage_maintenance.remark }}</li>
+                    <li>Response: {{ House.maintenance.damage_maintenance.response }}</li>
+                    <li>Remark: {{ House.maintenance.damage_maintenance.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1084,8 +1083,8 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.care_takers.response }}</li>
-                    <li>{{ House.maintenance.care_takers.remark }}</li>
+                    <li>Response: {{ House.maintenance.care_takers.response }}</li>
+                    <li>Remark: {{ House.maintenance.care_takers.remark }}</li>
                   </ul>
                 </td>
               </tr>
@@ -1097,9 +1096,168 @@
                 </td>
                 <td class="col-md-8">
                   <ul>
-                    <li>{{ House.maintenance.planned_frequency.response }}</li>
-                    <li>{{ House.maintenance.planned_frequency.remark }}</li>
+                    <li>Response: {{ House.maintenance.planned_frequency.response }}</li>
+                    <li>Remark: {{ House.maintenance.planned_frequency.remark }}</li>
                   </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section v-if="House.is_completed==='completed'">
+      <h3>FINAL ...</h3>
+      <div class="row row-underline">
+        <div class="col-md-6">
+          <span class="deal-text">Non-Destructive Test Results </span>
+        </div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Physical appearance :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.nd_test_res.grid }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Texture :</span>
+                </td>
+                <td class="col-md-8">
+                  <ul>
+                    <li>Time: {{ House.nd_test_res.ultrasonic.time }}</li>
+                    <li>Distance: {{ House.nd_test_res.ultrasonic.distance }}</li>
+                    <li>Velocity: {{ House.nd_test_res.ultrasonic.velocity }}</li>
+                    </ul>                  
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Strength :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.nd_test_res.eq_strength }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Crack :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.nd_test_res.hammer_val }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Dimension :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.nd_test_res.avg_hammer_val }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Deflection :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.nd_test_res.avg_eq_strength }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row row-underline">
+        <div class="col-md-6"><span class="deal-text">Site Description </span></div>
+        <div class="col-md-6">
+          <a href="#" data-abc="true"> <span class="ml-auto view-all"></span> </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="col-md-12">
+            <tbody>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Description/location :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.location }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Surrounding Vegetation :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.surr_veg }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification"
+                    >Surrounding Outlook :</span
+                  >
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.surr_out }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Wall Material :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.wall_mat }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Roof Materials :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.roof_mat }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Ceiling Materials :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.ceil_mat }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Windows Material :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.windows_mat }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Door Material :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.door_mat }}
+                </td>
+              </tr>
+              <tr class="row mt-10">
+                <td class="col-md-4">
+                  <span class="p_specification">Floor Finish :</span>
+                </td>
+                <td class="col-md-8">
+                  {{ House.site_desc.floor_finish }}
                 </td>
               </tr>
             </tbody>

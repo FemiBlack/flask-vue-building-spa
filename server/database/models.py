@@ -57,6 +57,7 @@ class BuildingDesignLevel(db.EmbeddedDocument):
     loading =  db.DictField() # read-docs
     structural_defect =  db.DictField() # read-docs
     deformation =  db.DictField() # read-docs
+    detailing =  db.DictField(default='Nil') # read-docs
 
 class BuildingWorkXPLevel(db.EmbeddedDocument):
     dimension =  db.DictField() # read-docs
@@ -68,6 +69,7 @@ class BuildingWorkXPLevel(db.EmbeddedDocument):
     deficient_cover =  db.DictField() # read-docs
     reinforcement_spec =  db.DictField() # read-docs
     seq_construction =  db.DictField() # read-docs
+    internal =  db.DictField(default='Nil') # read-docs
 
 class BuildingIndoorEnv(db.EmbeddedDocument):
     moisture =  db.DictField() # read-docs

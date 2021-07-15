@@ -3,9 +3,7 @@
     <div class="jumbotron">
       <b-jumbotron
         header="Service Life Database"
-        lead="A platform for adding survey records"
       >
-        <p>For more information visit website</p>
         <!-- <b-button variant="primary" href="#">More Info</b-button> -->
       </b-jumbotron>
     </div>

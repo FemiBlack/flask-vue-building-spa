@@ -264,6 +264,43 @@
             </div>
           </td>
         </tr>
+        <tr>
+          <td>Detailing</td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.design_lvl.detailing.response.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="design_lvl.detailing.response"
+                @input="$v.design_lvl.detailing.response.$touch()"
+              />
+              <span
+                
+                v-if="$v.design_lvl.detailing.response.$error
+                && !$v.design_lvl.detailing.response.required"
+                >Response is required</span
+              >
+            </div>
+        </td>
+          <td>
+            <div class="form-group"
+            v-bind:class="{ 'has-error': $v.design_lvl.detailing.remark.$error }">
+              <input
+                type="text"
+                class="form-control"
+                v-model.trim="design_lvl.detailing.remark"
+                @input="$v.design_lvl.detailing.remark.$touch()"
+              />
+              <span
+                
+                v-if="$v.design_lvl.detailing.remark.$error
+                && !$v.design_lvl.detailing.remark.required"
+                >Remark is required</span
+              >
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
     <!--
@@ -285,6 +322,7 @@ export default {
         loading: { response: '', remark: '' },
         structural_defect: { response: '', remark: '' },
         deformation: { response: '', remark: '' },
+        detailing: { response: '', remark: '' },
       },
     };
   },
@@ -297,6 +335,7 @@ export default {
       loading: { response: { required }, remark: { required } },
       structural_defect: { response: { required }, remark: { required } },
       deformation: { response: { required }, remark: { required } },
+      detailing: { response: { required }, remark: { required } },
       form: [
         'design_lvl.dimension.response',
         'design_lvl.dimension.remark',
@@ -312,6 +351,8 @@ export default {
         'design_lvl.structural_defect.remark',
         'design_lvl.deformation.response',
         'design_lvl.deformation.remark',
+        'design_lvl.detailing.response',
+        'design_lvl.detailing.remark',
       ],
     },
   },
