@@ -19,7 +19,7 @@
       @input="$v.nd_test_res.ultrasonic.time.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.ultrasonic.time.$error && !$v.nd_test_res.ultrasonic.time.required">
-    Address is required</span>
+    Ultrasonic Time(s) is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.ultrasonic.time.$error && !$v.nd_test_res.ultrasonic.time.numeric">
     Valid number is required</span>
@@ -30,7 +30,7 @@
       @input="$v.nd_test_res.ultrasonic.distance.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.ultrasonic.distance.$error && !$v.nd_test_res.ultrasonic.distance.required">
-    Date of Construction is required</span>
+    Ultrasonic Distance(mmm) is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.ultrasonic.distance.$error && !$v.nd_test_res.ultrasonic.distance.numeric">
     Valid number is required</span>
@@ -40,7 +40,7 @@
       <input type="text" class="form-control" v-model.trim="nd_test_res.ultrasonic.velocity"
       @input="$v.nd_test_res.ultrasonic.velocity.$touch()">
       <span class="help-block"
-    v-if="$v.nd_test_res.ultrasonic.velocity.$error && !$v.nd_test_res.ultrasonic.velocity.required">Age is required</span>
+    v-if="$v.nd_test_res.ultrasonic.velocity.$error && !$v.nd_test_res.ultrasonic.velocity.required">Ultrasonic Velocity(Km/s) is required</span>
       <span class="help-block"
     v-if="$v.nd_test_res.ultrasonic.velocity.$error && !$v.nd_test_res.ultrasonic.velocity.numeric">A valid number is required!</span>
     </div>
@@ -50,7 +50,7 @@
       @input="$v.nd_test_res.eq_strength.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.eq_strength.$error && !$v.nd_test_res.eq_strength.required">
-    Date of Last Repair is required</span>
+    E.Q Strength(N/MM2) is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.eq_strength.$error && !$v.nd_test_res.eq_strength.numeric">
     A valid number is required</span>
@@ -61,7 +61,7 @@
       @input="$v.nd_test_res.hammer_val.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.hammer_val.$error && !$v.nd_test_res.hammer_val.required">
-    Nature of Repair is required</span>
+    Hammer Value is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.hammer_val.$error && !$v.nd_test_res.hammer_val.numeric">
     Valid number is required</span>
@@ -72,7 +72,7 @@
       @input="$v.nd_test_res.avg_hammer_val.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.avg_hammer_val.$error && !$v.nd_test_res.avg_hammer_val.required">
-    Frequency of Repair is required</span>
+    Average Hammer Value is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.avg_hammer_val.$error && !$v.nd_test_res.avg_hammer_val.numeric">
     Valid number is required</span>
@@ -83,7 +83,7 @@
       @input="$v.nd_test_res.avg_eq_strength.$touch()">
       <span class="help-block"
     v-if="$v.nd_test_res.avg_eq_strength.$error && !$v.nd_test_res.avg_eq_strength.required">
-    Geometry is required</span>
+    Average E.Q Strength is required</span>
     <span class="help-block"
     v-if="$v.nd_test_res.avg_eq_strength.$error && !$v.nd_test_res.avg_eq_strength.numeric">
     A valid number is required</span>
