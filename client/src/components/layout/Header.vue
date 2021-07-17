@@ -10,15 +10,15 @@
     <b-navbar toggleable="lg" type="dark" id="nav" variant="dark">
       <!--fixed-top-->
       <div class="container">
-        <!-- <b-navbar-brand to="/" class="mr-4">Store</b-navbar-brand> -->
+        <b-navbar-brand to="/" class="mr-4">S.L.D.B</b-navbar-brand>
           <b-navbar-toggle target="nav-collapse"> </b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="mr-auto">
-              <b-nav-item to="/">Home</b-nav-item>
+              <!-- <b-nav-item to="/">Home</b-nav-item> -->
               <b-nav-item v-if="isLoggedIn" to="/account">Account</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-if="isLoggedIn">
-            <b-nav-form>
+            <b-nav-form v-show="role<2">
               <b-form-input
                 size="sm"
                 class="mr-sm-2"
@@ -34,10 +34,15 @@
               >
             </b-nav-form>
             <b-nav-item
-              ><b-button size="sm" variant="success" to="/registerbuilding">
+              ><b-button v-if="role>=1" size="sm" variant="success" to="/registerbuilding">
                 Make Entry
-              </b-button></b-nav-item
+              </b-button>
+              <b-button v-else size="sm" variant="success" to="/registerbuilding" disabled>
+                Make Entry(Disabled)
+              </b-button>
+              </b-nav-item
             >
+            <b-nav-item to="/admin" v-show="role===2">Admin Dashboard</b-nav-item>
             <b-nav-item @click="logout">Logout</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-else>
@@ -53,6 +58,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Login from "@/views/Login.vue";
 
 export default {
@@ -66,6 +72,8 @@ export default {
     Login,
   },
   computed: {
+    ...mapGetters({ role: "StateUserRole" }),
+
     isLoggedIn() {
       return this.$store.getters.isAuthenticated;
     },

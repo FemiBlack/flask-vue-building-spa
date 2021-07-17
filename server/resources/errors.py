@@ -52,11 +52,11 @@ errors = {
     },
     "EmailAlreadyExistsError": {
         "message": "User with given email already exists",
-        "status": 500
+        "status": 400
     },
     "UsernameAlreadyExistsError": {
         "message": "User with given username already exists",
-        "status": 500
+        "status": 400
     },
     "UnauthorizedError": {
         "message": "Invalid username or password",

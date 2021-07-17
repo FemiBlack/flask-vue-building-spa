@@ -57,10 +57,13 @@
         <div v-else>No registered houses found...😢😕</div>
       </b-col>
       <b-col>
-        <div v-if="User">
+        <div v-if="User && role>0">
           <b-alert show>Hi, {{ User }}</b-alert>
         </div>
-        <section class="info-tiles">
+        <div v-else>
+          <b-alert show>Hi, {{ User }}(guest)</b-alert>
+        </div>
+        <section class="info-tiles" v-if="role>0">
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
@@ -149,11 +152,13 @@ export default {
   computed: {
     ...mapGetters({ Houses: "StateUserHouses", User: "StateUser" }),
     filteredList() {
-      return this.Houses.filter((post) => {
-        return post.building_no
-          .toLowerCase()
-          .includes(this.search.toLowerCase());
-      });
+        if (!this.Houses.message) {
+            return this.Houses.filter((post) => {
+              return post.building_no
+                .toLowerCase()
+                .includes(this.search.toLowerCase());
+            });
+        }
     },
     computeCompleted: function () {
       const completed = this.Houses.filter(
@@ -214,6 +219,7 @@ export default {
 </script>
 
 <style>
+@import '../../node_modules/bulma/css/bulma.css';
 .content-section {
   background: #ffffff;
   padding: 10px 20px;

@@ -14,16 +14,29 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-  {
-    path:'/bulma',
-    name: 'Bulma',
-    component: () => import(/*webpackChunkName: "Bulma"*/'@/views/Bulma.vue'),
-  },
+  // {
+  //   path:'/bulma',
+  //   name: 'Bulma',
+  //   component: () => import(/*webpackChunkName: "Bulma"*/ '@/views/Bulma.vue'),
+  // },
   {
     path: '/register',
     name: 'Register',
-    component: () => import(/*webpackChunkName: "Register"*/'@/views/Register.vue'),
+    component: () => import(/*webpackChunkName: "Register"*/ '@/views/Register.vue'),
     meta: { guest: true },
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import(/*webpackChunkName: "Admin"*/ '@/views/Admin.vue'),
+    meta: { requiresAdminAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (store.auth.role === 2) {
+        next();
+        return;
+      }
+      next('/');
+    }
   },
   {
     path: '/account',
@@ -40,17 +53,22 @@ const routes = [
         path: '',
         alias: 'first',
         name: 'FirstStep',
-        component: () => import(/*webpackChunkName: "Field One"*/ '@/components/Wizard.vue'),
+        component: () => import(/*webpackChunkName: "FieldOne"*/ '@/components/Wizard.vue'),
+      },
+      {
+        path: 'first/:id',
+        name: 'EditFirstStep',
+        component: () => import(/*webpackChunkName: "EditFieldOne"*/ '@/components/EFWizard.vue'),
       },
       {
         path: 'second/:id',
         name: 'SecondStep',
-        component: () => import(/*webpackChunkName: "Field Two"*/ '@/components/EditWizard.vue'),
+        component: () => import(/*webpackChunkName: "FieldTwo"*/ '@/components/EditWizard.vue'),
       },
       {
         path: 'third/:id',
         name: 'ThirdStep',
-        component: () => import(/*webpackChunkName: "Field Two"*/ '@/components/LastStepWizard.vue'),
+        component: () => import(/*webpackChunkName: "FieldTwo"*/ '@/components/LastStepWizard.vue'),
       },
     ],
     meta: { requiresAuth: true },
@@ -61,17 +79,6 @@ const routes = [
     component: ViewHouse,
   },
 
-  //   // beforeEnter: (to, from, next) => {
-  //   //   const exists = store.auth.find(
-  //   //     destination => destination.slug === to.params.slug
-  //   //   );
-  //   //   if (exists) {
-  //   //     next()
-  //   //   }
-  //   //   else {
-  //   //     next({ name: 'notFound' })
-  //   //   }
-  //   // },
   {
     path: '/404',
     alias: '*',

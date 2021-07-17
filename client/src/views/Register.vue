@@ -3,7 +3,7 @@
   <!-- registration-modal -->
   <div class="container">
     <h2>Register Here</h2>
-    <b-alert v-if="showError" show variant="warning" id="error">Email or Username already exists</b-alert>
+    <!-- <b-alert v-if="showError" show variant="warning" id="error">Email or Username already exists</b-alert> -->
     <b-form @submit="handleSubmit" @reset="onResetSignup" class="w-100">
       <b-form-group
         id="form-name-signup-group"
@@ -117,7 +117,7 @@ export default {
         password: "",
         confirmPassword: "",
       },
-      showError: false,
+      // showError: false,
       submitted: false,
       isSpinner: false,
     };
@@ -134,13 +134,12 @@ export default {
     ...mapActions(["Register"]),
     async submit(payload) {
       try {
-        await this.Register(payload);
-        this.$router.push("/account");
-        this.showError = false;
+        await this.Register(payload)
+        // this.showError = false;
         this.isSpinner = false;
       } catch (error) {
         console.warn(error)
-        this.showError = true;
+        // this.showError = false;
         this.isSpinner = false;
       }
     },
@@ -151,6 +150,7 @@ export default {
       // stop here if form is  invalid
       this.$v.$touch();
       if (this.$v.$invalid) {
+      this.isSpinner = false;
         return;
       }
       const payload = {

@@ -14,9 +14,9 @@ load_dotenv()
 app = Flask(__name__, static_folder='../client/dist/', static_url_path='/')
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'somesecretkey'
-DATABASE_URL = os.environ.get('DATABASE_URI')
-app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
-# app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing_app'}
+# DATABASE_URL = os.environ.get('DATABASE_URI')
+# app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
+app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/housing_app'}
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
@@ -33,4 +33,4 @@ def index():
     return app.send_static_file('index.html')
 
 if __name__ == '__main__':
-    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=True)
+    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=False)

@@ -143,9 +143,9 @@ class Building(db.Document):
     date_created = db.DateTimeField(default=datetime.now())
     building_no = db.StringField(required=True, unique=True)
     address = db.StringField(required=True)
-    date = db.DateTimeField()
-    building_age = db.IntField()
-    last_repair_date = db.DateTimeField()
+    date = db.DateTimeField(default=None)
+    building_age = db.IntField(default='Nil')
+    last_repair_date = db.DateTimeField(default='Nil')
     nature_of_repair = db.StringField()
     frequency_of_repair = db.StringField()
     geometry = db.StringField()
@@ -169,10 +169,16 @@ class Building(db.Document):
     is_completed = db.StringField() # set to true on FIELD4 SUBMISSION
     added_by = db.ReferenceField('User')
 
+ACCESS = {
+    'guest': 0,
+    'user': 1,
+    'admin': 2
+}
 class User(db.Document):
     email = db.EmailField(required=True, unique=True)
     username = db.StringField(required=True, unique=True)
     password = db.StringField(required=True, min_length=6)
+    role = db.IntField(default=ACCESS['guest'])
     houses = db.ListField(db.ReferenceField('Building', reverse_delete_rule=db.PULL))
 
     def hash_password(self):
