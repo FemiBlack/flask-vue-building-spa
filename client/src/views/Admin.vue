@@ -22,15 +22,9 @@
               </ul>
             </li>
             <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-            <li><a>Payments</a></li>
           </ul>
           <p class="menu-label">Transactions</p>
           <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
             <li><a>Reports</a></li>
           </ul>
         </aside>
@@ -38,7 +32,7 @@
       <div class="column is-9">
         <nav class="breadcrumb" aria-label="breadcrumbs">
           <ul>
-            <li><a href="">SLDB</a></li>
+            <li><router-link to="/">SLDB</router-link></li>
             <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
           </ul>
         </nav>
@@ -54,7 +48,7 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">{{ poolUsers.length }}</p>
+                <p class="title">{{ poolUsers.length - guestUsers.length }}</p>
                 <p class="subtitle">Users</p>
               </article>
             </div>
@@ -82,7 +76,7 @@
           <div class="column is-6">
             <div class="card events-card">
               <header class="card-header">
-                <p class="card-header-title">Pending Requests</p>
+                <p class="card-header-title">Pending Requests({{guestUsers.length}})</p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -90,19 +84,22 @@
                 </a>
               </header>
               <div class="card-table">
-                <div class="content">
-                  <table class="table is-fullwidth is-striped">
-                    <tbody v-for="(guest, i) in guestUsers" :key="i">
+                <div  v-if="guestUsers[0]" class="content">
+                  <table v-for="(guest, i) in guestUsers" :key="i" class="table is-fullwidth is-striped">
+                    <tbody>
                       <tr>
                         <td width="5%"><i class="fa fa-bell-o"></i></td>
                         <td>{{ guest.username }}</td>
                         <td class="level-right">
-                          <a class="button is-small is-primary mr-2" href="#" @click="readyAccept(guest)">Accept</a>
-                          <a class="button is-small is-info" href="#" @click="readyDecline(guest)">Reject</a>
+                          <a class="button is-small is-primary mr-2" @click="readyAccept(guest)">Accept</a>
+                          <a class="button is-small is-info" @click="readyDecline(guest)">Reject</a>
                         </td>
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                <div v-else class="content">
+                  <p>There are no pending requests</p>
                 </div>
               </div>
               <footer class="card-footer">
@@ -236,6 +233,8 @@ export default {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
+      }).then(()=> {
+        this.getUsers()
       });
     },
     deleteUser() {
@@ -243,11 +242,11 @@ export default {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`
         }
+      }).then(()=>{
+        this.getUsers()
       });
-    }
-  },
-  created() {
-    const getUsers = () => {
+    },
+    getUsers() {
       axios
         .get("/api/getusers", {
           headers: {
@@ -258,43 +257,25 @@ export default {
           this.poolUsers = res.data;
         })
         .catch(err => {
-          console.warn(err);
+          console.warn(err.response.data);
         });
-    };
-    getUsers();
+    }
+  },
+  created() {
+    this.getUsers();
     setInterval(() => {
-      getUsers();
-    }, 3000);
+      this.getUsers();
+    }, 30000);
   }
 };
 </script>
 
 <style scoped>
-html,
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  height: 100%;
-  background: #ecf0f3;
-}
-nav.navbar {
-  border-top: 4px solid #276cda;
-  margin-bottom: 1rem;
-}
-.navbar-item.brand-text {
-  font-weight: 300;
-}
-.navbar-item,
-.navbar-link {
-  font-size: 14px;
-  font-weight: 700;
-}
-.columns {
+/* .columns {
   width: 100%;
   height: 100%;
   margin-left: 0;
-}
+} */
 .menu-label {
   color: #8f99a3;
   letter-spacing: 1.3;
@@ -352,5 +333,9 @@ nav.navbar {
 .events-card .card-table {
   max-height: 250px;
   overflow-y: scroll;
+}
+.content p{
+  padding: 20px;
+  color: #8f99a3;
 }
 </style>

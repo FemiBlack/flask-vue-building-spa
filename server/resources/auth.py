@@ -6,9 +6,9 @@ from flask_restful import Resource
 import datetime
 import json
 
-from mongoengine.errors import FieldDoesNotExist, NotUniqueError, DoesNotExist
+from mongoengine.errors import FieldDoesNotExist, NotUniqueError, DoesNotExist, InvalidQueryError
 from resources.errors import SchemaValidationError, EmailAlreadyExistsError, UnauthorizedError, \
-    InternalServerError
+    InternalServerError,DeletingBuildingError, UpdatingBuildingError
 
 class SignupApi(Resource):
     def post(self):
@@ -46,20 +46,20 @@ class LoginApi(Resource):
             raise InternalServerError
 
 class GetUsersApi(Resource):
-    @jwt_required
+    @jwt_required()
     def get(self):
         claims = get_jwt()
-        if claims['role'] == 2:
-            users = Users.objects().to_json()
+        if int(claims['role']) == 2:
+            users = User.objects().to_json()
             return Response(users, mimetype="application/json", status=200)
         else:
-            return {'message':'Unauthorized access'}
+            return {'message':'Unauthorized access'}, 401
     
 class UserApi(Resource):
-    @jwt_required
+    @jwt_required()
     def put(self, id):
         claims = get_jwt()
-        if claims['role'] == 2:
+        if int(claims['role']) == 2:
             try:
                 body = request.get_json()
                 User.objects.get(id=id).update(**body)
@@ -76,7 +76,7 @@ class UserApi(Resource):
     @jwt_required()
     def delete(self, id):
         claims = get_jwt()
-        if claims['role'] == 2:
+        if int(claims['role']) == 2:
             try:
                 user = User.objects.get(id=id)
                 user.delete()

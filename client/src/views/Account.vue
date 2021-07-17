@@ -150,7 +150,7 @@ export default {
     "jw-pagination": JWPagination,
   },
   computed: {
-    ...mapGetters({ Houses: "StateUserHouses", User: "StateUser" }),
+    ...mapGetters({ Houses: "StateUserHouses", User: "StateUser", role:"StateUserRole" }),
     filteredList() {
         if (!this.Houses.message) {
             return this.Houses.filter((post) => {
@@ -158,6 +158,8 @@ export default {
                 .toLowerCase()
                 .includes(this.search.toLowerCase());
             });
+        } else {
+            return []
         }
     },
     computeCompleted: function () {
@@ -218,7 +220,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import '../../node_modules/bulma/css/bulma.css';
 .content-section {
   background: #ffffff;

@@ -31,7 +31,7 @@ const routes = [
     component: () => import(/*webpackChunkName: "Admin"*/ '@/views/Admin.vue'),
     meta: { requiresAdminAuth: true },
     beforeEnter: (to, from, next) => {
-      if (store.auth.role === 2) {
+      if (store.state.auth.role === 2) {
         next();
         return;
       }

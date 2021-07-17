@@ -10,11 +10,11 @@
     <b-navbar toggleable="lg" type="dark" id="nav" variant="dark">
       <!--fixed-top-->
       <div class="container">
-        <b-navbar-brand to="/" class="mr-4">S.L.D.B</b-navbar-brand>
+        <!-- <b-navbar-brand to="/" class="mr-4">S.L.D.B</b-navbar-brand> -->
           <b-navbar-toggle target="nav-collapse"> </b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="mr-auto">
-              <!-- <b-nav-item to="/">Home</b-nav-item> -->
+              <b-nav-item to="/">Home</b-nav-item>
               <b-nav-item v-if="isLoggedIn" to="/account">Account</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav v-if="isLoggedIn">
