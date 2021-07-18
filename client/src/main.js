@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import axios from 'axios';
+// import axios from 'axios';
 // import 'buefy/dist/buefy.css'
 import BootstrapVue from 'bootstrap-vue';
 import Vuelidate from 'vuelidate';
@@ -24,7 +24,7 @@ Vue.mixin(titleMixin)
 Vue.use(VueFormWizard);
 /* eslint no-underscore-dangle: 0 */
 // axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 // crossDomain:true
 // eslint-disable-next-line
 // axios.interceptors.response.use(undefined, (error) => {
