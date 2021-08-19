@@ -437,19 +437,19 @@
             <div
               class="form-group"
               v-bind:class="{
-                'has-error': $v.internal.seq_construction.response.$error,
+                'has-error': $v.work_xp_lvl.internal.response.$error,
               }"
             >
               <input
                 type="text"
                 class="form-control"
-                v-model.trim="internal.seq_construction.response"
-                @input="$v.internal.seq_construction.response.$touch()"
+                v-model.trim="work_xp_lvl.internal.response"
+                @input="$v.work_xp_lvl.internal.response.$touch()"
               />
               <span
                 v-if="
-                  $v.internal.seq_construction.response.$error &&
-                  !$v.internal.seq_construction.response.required
+                  $v.work_xp_lvl.internal.response.$error &&
+                  !$v.work_xp_lvl.internal.response.required
                 "
                 >Response is required</span
               >
@@ -459,19 +459,19 @@
             <div
               class="form-group"
               v-bind:class="{
-                'has-error': $v.internal.seq_construction.remark.$error,
+                'has-error': $v.work_xp_lvl.internal.remark.$error,
               }"
             >
               <input
                 type="text"
                 class="form-control"
-                v-model.trim="internal.seq_construction.remark"
-                @input="$v.internal.seq_construction.remark.$touch()"
+                v-model.trim="work_xp_lvl.internal.remark"
+                @input="$v.work_xp_lvl.internal.remark.$touch()"
               />
               <span
                 v-if="
-                  $v.internal.seq_construction.remark.$error &&
-                  !$v.internal.seq_construction.remark.required
+                  $v.work_xp_lvl.internal.remark.$error &&
+                  !$v.work_xp_lvl.internal.remark.required
                 "
                 >Remark is required</span
               >
